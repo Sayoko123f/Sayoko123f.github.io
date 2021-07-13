@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六角</title>
+    <script defer src="main.bundle.js"></script>
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="bg-black text-white flex flex-wrap flex-row justify-around items-center md:space-x-4 p-2 relative">
+        <div class="block">
+            <h1 class="text-2xl font-bold">六角大漢堡</h1>
+        </div>
+        <button class="inline-block md:hidden w-8 h-8 bg-gray-200 text-gray-600 p-1" id="menu-toggle">
+            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+        <div id="menu"
+            class="hidden md:flex md:space-x-6 flex-col md:flex-row md:space-x-4 w-full md:w-auto bg-gray-800 md:bg-transparent p-6 md:p-0 absolute md:relative top-16 left-0 md:top-0 shadow-md md:shadow-none">
+            <a href="sixschool.html" class="text-blue-400 hover:underline font-bold">首頁</a>
+            <a href="sixschool.shop.html" class="hover:underline font-bold">線上購物</a>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div class="text-humber-2 ml-4 p-2">
+                <h2 class="font-bold text-2xl ">線上訂購美食</h2>
+                <ul class="space-y-1 mt-2">
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                    <li class="border-b"><a>所有品項</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="flex">
+                    <input class="border border-humber-2" placeholder="Search..." type="text">
+                    <span class="border border-humber-2 bg-humber-2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="flex">
+                    <p>結帳去</p>
+                    <button class="" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="bg-humber-3">
+                <!-- card -->
+                <div class="shadow-md bg-yellow-50 relative m-2">
+                    <img class="mx-auto" src="six/product_1_desktop.png">
+                    <div class="text-center mx-16 py-3">
+                        <h3 class="text-humber-2 text-xl font-bold">經典漢堡套餐</h3>
+                        <p class="text-sm border-b border-humber-2">Classic Hamburger Packge</p>
+                        <p class="my-1 italic">$ 120</p>
+                        <button
+                            class="border-red-400 border px-3 rounded-md hover:shadow-md hover:bg-green-400">加入購物車</button>
+                    </div>
+                    <span class="absolute top-2 left-2 text-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="shadow-md bg-yellow-50 relative m-2">
+                    <img src="six/product_2_desktop.png">
+                    <div class="text-center mx-16 py-3">
+                        <h3 class="text-humber-2 text-xl font-bold">經典漢堡套餐</h3>
+                        <p class="text-sm border-b border-humber-2">Classic Hamburger Packge</p>
+                        <p class="my-1 italic">$ 120</p>
+                        <button class="border-red-400 border px-3">加入購物車</button>
+                    </div>
+                    <span class="absolute top-2 left-2 text-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.querySelector('#menu-toggle').addEventListener('click', function () {
+            document.querySelector('#menu').classList.toggle('flex');
+            document.querySelector('#menu').classList.toggle('hidden');
+        })
+    </script>
+</body>
+
+</html>

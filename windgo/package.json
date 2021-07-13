@@ -1,0 +1,27 @@
+{
+  "name": "windgo",
+  "version": "1.0.0",
+  "description": "My tailwind css and webpack 5 practice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode=development"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "style-loader": "^3.0.0",
+    "tailwindcss": "^2.2.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
