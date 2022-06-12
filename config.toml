@@ -1,0 +1,9 @@
+baseURL = ''
+languageCode = 'zh-TW'
+title = 'Sayoko123f'
+theme = 'devblog'
+enableEmoji = true
+
+[Params]
+    author = 'Sayoko123f'
+    github = 'https://github.com/Sayoko123f'

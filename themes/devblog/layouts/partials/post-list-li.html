@@ -1,0 +1,15 @@
+<div class="border-b py-2 dark:border-white/20">
+  <h2 class="py-2 text-2xl font-bold">
+    <a href="{{ .Permalink}}"> {{ .Title }} </a>
+  </h2>
+  <div class="flex flex-wrap items-center">
+    <span class="mr-2 opacity-80">{{ .Date.Format "2006年1月2日" }}</span>
+    {{ partial "post-tags.html" . }}
+  </div>
+  <p class="py-8">{{ .Summary }}</p>
+  <div class="mb-4">
+    <a class="opacity-60 hover:underline hover:opacity-100" href="{{ .Permalink }}"
+      >繼續閱讀…</a
+    >
+  </div>
+</div>

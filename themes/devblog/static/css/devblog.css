@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a:hover {
+    color: #0ea5e9;
+}
+
+#TableOfContents ul {
+    padding: 0.25rem;
+}
+
+#TableOfContents > ul > li > a {
+    font-weight: 700;
+}
+
+#TableOfContents li {
+    padding: 0.25rem 0px 0.25rem 1rem;
+}

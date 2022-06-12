@@ -1,0 +1,18 @@
+<header class="flex h-11 items-center border-b border-black/20 px-4 dark:border-white/40">
+  <nav class="mx-auto flex w-full max-w-4xl justify-between">
+    <ul class="flex gap-4">
+      {{ range slice .Site.Home | append .Site.Sections }} {{ partial "header-nav-li.html"
+      . }} {{ end }} {{ with .Site.GetPage "/about" }} {{ partial "header-nav-li.html" .
+      }} {{ end }} {{ with .Site.GetPage "/tags" }} {{ partial "header-nav-li.html" . }}
+      {{ end }}
+    </ul>
+    <ul class="flex gap-4">
+      {{ with .Site.Params.github }}
+      <li class="h-6 w-6">
+        <a href="{{ . }}" title="github"> {{ partial "github-svg.html" }} </a>
+      </li>
+      {{ end }}
+      <li class="h-6 w-6">{{ partial "toggle-light-dark-button.html" }}</li>
+    </ul>
+  </nav>
+</header>

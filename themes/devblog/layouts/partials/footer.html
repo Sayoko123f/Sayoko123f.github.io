@@ -1,0 +1,26 @@
+<footer class="mt-8 border-t border-black/20 py-4 dark:border-white/40">
+  <div class="flex flex-col items-center justify-center">
+    <button
+      id="goto-top-button"
+      class="opacity-60 hover:opacity-100"
+      aria-label="scroll to top"
+    >
+      回最上方🔺
+    </button>
+    <div class="py-2">
+      {{ with .Site.Params.github }}
+      <a
+        class="inline-block h-6 w-6 opacity-60 hover:opacity-100"
+        href="{{ . }}"
+        title="Github"
+      >
+        {{ partial "github-svg.html" }}
+      </a>
+      {{ end }}
+    </div>
+    <div class="text-sm opacity-60">
+      {{ with .Site.Params.author }} © {{ now.Format "2006" }} {{ . }} {{ end }} Powered
+      By Hugo
+    </div>
+  </div>
+</footer>

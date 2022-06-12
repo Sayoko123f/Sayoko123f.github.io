@@ -1,0 +1,1 @@
+npx tailwindcss -i ./themes/devblog/static/css/devblog.css -o ./assets/css/output.css --watch

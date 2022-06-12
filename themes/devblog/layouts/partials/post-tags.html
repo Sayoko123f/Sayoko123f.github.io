@@ -1,0 +1,5 @@
+<div class="flex gap-1 flex-wrap">
+    {{ with .Params.Tags }}
+    {{ range . }}<a class="rounded bg-stone-200 dark:bg-stone-800 px-2 py-1" href="{{ with site.GetPage (printf "/tags/%s" . ) }}{{ .Permalink }}{{ end }}">{{ . }}</a>{{ end }}
+    {{ end }}
+</div>

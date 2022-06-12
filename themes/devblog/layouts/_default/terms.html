@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main class="px-4">
+    <h2 class="text-xl font-bold py-4">{{ .Title }}</h2>
+    <ul class="flex flex-wrap gap-2">
+        {{ range .Site.Taxonomies.tags }}
+        <li class="rounded bg-stone-200 dark:bg-stone-800 px-2 py-1"><a href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a></li>
+        {{ end }}
+</main>
+{{ end }}
