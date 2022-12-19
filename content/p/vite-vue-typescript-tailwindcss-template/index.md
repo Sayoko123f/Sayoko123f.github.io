@@ -28,12 +28,13 @@ npm install
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
-Tailwindcss 設定檔案 `tailwind.config.js`
+Tailwindcss 設定檔案 `tailwind.config.cjs`
 ```js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,vue}",
   ],
   theme: {
     extend: {},
@@ -93,14 +94,15 @@ createApp(App).use(router).mount('#app');
 ### prettier
 [prettier config docs](https://prettier.io/docs/en/configuration.html)
 
-建立 `prettier.config.js`，底下是常用設定
-```js
-module.exports = {
-    trailingComma: 'es5',
-    tabWidth: 4,
-    semi: true,
-    singleQuote: true,
-};
+建立 `.prettierrc`，底下是常用設定
+```json
+{
+  "printWidth": 110,
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true
+}
 ```
 ### prettier-plugin-tailwindcss
 [github](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
@@ -146,6 +148,33 @@ npm install -D @tailwindcss/typography
 在 `tailwind.config.js` 的 `plugins` 中引入
 ```
 require('@tailwindcss/typography'),
+```
+
+### Jest
+[docs](https://jestjs.io/docs/getting-started)
+
+### vitest
+[docs](https://vitest.dev/guide/)
+```
+npm install -D vitest
+```
+
+### @testing-library
+[docs](https://testing-library.com/docs/)
+
+### MSW
+[docs](https://mswjs.io/docs/getting-started/install)
+
+### Playwright
+[docs](https://playwright.dev/docs/intro)
+```
+npm init playwright@latest
+```
+
+### Cypress
+[docs](https://docs.cypress.io/guides/getting-started/installing-cypress#What-you-ll-learn)
+```
+npm install cypress --save-dev
 ```
 
 ## 其它
