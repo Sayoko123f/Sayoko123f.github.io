@@ -273,6 +273,33 @@ const example3: Merge<Foo3, Bar3> = {
 }
 ```
 
+## OverrideProperties 覆蓋
+
+和 Merge 類似，不同之處在於第二個類型只能有第一個類型存在的 `key`。
+
+在想要修改原始類型而不增加額外的屬性時，使用此類型比 Merge 更安全。
+
+下例因為第二個類型 `Bar` 有第一個類型沒有的 `bar` 屬性，所以報錯。
+
+```ts
+import type { OverrideProperties } from 'type-fest';
+
+interface Foo {
+    id: string;
+}
+
+interface Bar {
+    id: number;
+    bar: string;
+}
+
+// @ts-expect-error
+const example: OverrideProperties<Foo, Bar> = {
+    id: 1,
+    bar: '1'
+}
+```
+
 ## MergeDeep 深度合併
 
 Merge 的深度合併版本。
