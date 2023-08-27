@@ -196,3 +196,107 @@ const example4: RequireAllOrNone<Options> = {}
 ```
 
 第二個泛型參數可以填入有哪些 `key` 要納入判斷，預設是所有 `key`，未被納入判斷的 `key` 保持原樣。
+
+## Merge 合併
+
+Merge 有兩個泛型參數，第二個類型會覆蓋第一個類型。
+
+> 此類型僅進行淺層合併，請看示例三，如果需要深度合併請見 MergeDeep
+
+### 示例一
+
+用 `Bar1` 覆蓋了 `Foo1`，最終 `id` 為 `number`
+
+```ts
+import type { Merge } from 'type-fest';
+
+interface Foo1 {
+    id: string;
+}
+
+interface Bar1 {
+    id: number;
+}
+
+const example1: Merge<Foo1, Bar1> = {
+    id: 1
+}
+```
+
+### 示例二
+
+`name` 可選被覆蓋成必填的例子。
+
+```ts
+interface Foo2 {
+    id: string;
+    name?: string;
+}
+
+interface Bar2 {
+    id: number;
+    name: string;
+}
+
+const example2: Merge<Foo2, Bar2> = {
+    id: 1,
+    name: 'John'
+}
+```
+
+### 示例三
+
+`data` 從 `{ foo: string; }` 被覆蓋成 `{ bar: string; }`
+
+```ts
+interface Foo3 {
+    id: string;
+    data: {
+        foo: string;
+    }
+}
+
+interface Bar3 {
+    id: number;
+    data: {
+        bar: string;
+    }
+}
+
+const example3: Merge<Foo3, Bar3> = {
+    id: 1,
+    data: {
+        // @ts-expect-error
+        foo: 'foo',
+        bar: 'bar'
+    }
+}
+```
+
+## MergeDeep 深度合併
+
+Merge 的深度合併版本。
+
+```ts
+interface Foo {
+    id: string;
+    data: {
+        foo: string;
+    }
+}
+
+interface Bar {
+    id: number;
+    data: {
+        bar: string;
+    }
+}
+
+const example: MergeDeep<Foo, Bar> = {
+    id: 1,
+    data: {
+        foo: 'foo',
+        bar: 'bar'
+    }
+}
+```
