@@ -1,6 +1,6 @@
 ---
 title: "T[number] 是什麼"
-date: 2023-08-25T17:41:42+08:00
+date: 2023-08-28T17:41:42+08:00
 description: "解釋在 TypeScript 中什麼是 T[number]"
 tags: ['TypeScript']
 ---
