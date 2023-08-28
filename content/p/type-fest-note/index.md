@@ -327,3 +327,25 @@ const example: MergeDeep<Foo, Bar> = {
     }
 }
 ```
+
+## LiteralUnion 字面量聯合類型
+
+這是為了應對 TypeScript 的已知限制而誕生的類型(詳情請見 [issue](https://github.com/Microsoft/TypeScript/issues/29729))
+
+當我們在撰寫一個 `Color` 字串聯合類型時，我們希望允許 `#ffffff` 這樣的任意字串，但也希望提供 `'black'` 的預定義顏色。
+
+```ts
+type Color = 'black' | string;
+
+const mycolor: Color = ''
+```
+
+但是這會產生在編輯器中失去自動完成功能的問題。為了應對這個問題，利用 `LiteralUnion` 改寫即可保留自動完成功能。
+
+```ts
+import type { LiteralUnion } from 'type-fest'
+
+type Color = LiteralUnion<'black', string>
+
+const mycolor: Color = ''
+```
