@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ffmpeg on Sayoko123f</title><link>https://sayoko123f.github.io/tags/ffmpeg/</link><description>Recent content in ffmpeg on Sayoko123f</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 05 Jun 2022 09:18:43 +0800</lastBuildDate><atom:link href="https://sayoko123f.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml"/><item><title>如何將多個 ts 檔案合併為一個 mp4 檔案</title><link>https://sayoko123f.github.io/p/ffmpeg-m3u8-ts-to-mp4/</link><pubDate>Sun, 05 Jun 2022 09:18:43 +0800</pubDate><guid>https://sayoko123f.github.io/p/ffmpeg-m3u8-ts-to-mp4/</guid><description>如何將多個 ts 檔案合併為一個 mp4 檔案 下載 ffmpeg How to install ffmpeg
+ffmpeg build
+選 release builds，ffmpeg-release-full-shared.7z 版本，功能齊全但檔案稍微大一點。
+下載好後解壓縮，將 ffmpeg/bin 加入環境變數。
+打開 cmd 輸入 ffmpeg 看看是否有成功。
+合併 ts 並轉換 For Windows 先將多個 ts 合併成一個：
+copy /b 0.ts+1.ts+2.ts+3.ts all.ts 然後使用 ffmpeg 轉換：
+ffmpeg -i all.ts -acodec copy -vcodec copy all.mp4 大功告成。
+參考 Use ffmpeg copy codec to combine *.ts files into a single mp4
+附錄- Node 下載 ts 檔案 npm install axios import axios from &amp;#34;axios&amp;#34;; import * as fs from &amp;#34;fs&amp;#34;; import { promisify } from &amp;#34;util&amp;#34;; import stream from &amp;#34;stream&amp;#34;; const finished = promisify(stream.</description></item></channel></rss>

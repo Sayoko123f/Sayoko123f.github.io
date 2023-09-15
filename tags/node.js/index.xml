@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node.js on Sayoko123f</title><link>https://sayoko123f.github.io/tags/node.js/</link><description>Recent content in Node.js on Sayoko123f</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Tue, 15 Mar 2022 18:20:26 +0800</lastBuildDate><atom:link href="https://sayoko123f.github.io/tags/node.js/index.xml" rel="self" type="application/rss+xml"/><item><title>Node.js 與 MongoDB 學習筆記</title><link>https://sayoko123f.github.io/p/node-use-mongodb/</link><pubDate>Tue, 15 Mar 2022 18:20:26 +0800</pubDate><guid>https://sayoko123f.github.io/p/node-use-mongodb/</guid><description>Node.js 與 MongoDB 學習筆記 本筆記主要會記錄在 Node.js 應用中連接 MongoDB Atlas 的操作方法，如果讀者發現任何錯誤或值得討論的地方，請不吝指教。
+環境為 Node.js v14.17.4，MongoDB 是在 MongoDB Atlas 申請 shared 的免費方案。
+文件 MongoDB 手冊 MongoDB Node.js driver MongoDB NoDe.js driver API 準備 安裝驅動 npm
+npm i mongodb 建立測試資料 MongoDB Atlas 有提供一組資料集可以用來測試練習，在控制台按 Load Sample Dataset 就可以載入了，可參考這裡有一篇鐵人賽關於建立 Atlas 的教學寫得很詳細，。另外本文也在 sample_airbnb 資料庫底下建立了一個空的資料集名為 practiceData。
+連接 連接需要一組 uri ，在 MongoDB 的控制台可以複製，本文會使用帳號密碼的方式連接，至於使用證書連接的方式，則待日後再研究了。
+假設密碼放在父目錄的 .env json 檔案，注意帳號密碼如果有特殊字元要使用 encodeURIComponent進行編碼。
+下方程式碼為進行連接，以及關閉。
+const fs = require(&amp;#39;fs&amp;#39;); const path = require(&amp;#39;path&amp;#39;); const env = JSON.</description></item></channel></rss>

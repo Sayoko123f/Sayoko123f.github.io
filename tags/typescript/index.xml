@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TypeScript on Sayoko123f</title><link>https://sayoko123f.github.io/tags/typescript/</link><description>Recent content in TypeScript on Sayoko123f</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Mon, 28 Aug 2023 17:41:42 +0800</lastBuildDate><atom:link href="https://sayoko123f.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title>T[number] 是什麼</title><link>https://sayoko123f.github.io/p/what-is-tnumber/</link><pubDate>Mon, 28 Aug 2023 17:41:42 +0800</pubDate><guid>https://sayoko123f.github.io/p/what-is-tnumber/</guid><description>T[number] 是什麼 為了想跟同事解釋什麼是 T[number] 所以有這篇筆記。
+為什麼可以使用 T[number] 來表示陣列元素的類型 要瞭解這個問題，可以先從 TypeScript 定義 Array 的原始碼開始
+Source Code
+點進去可以看到，Array 其實就是一個 interface
+interface Array&amp;lt;T&amp;gt; { length: number; // 若干陣列方法... [n: number]: T; } 注意在最後一行的 [n: number]: T; ，這是索引類型語法。
+代表這個 interface 的任何 number 索引類型是 T，也就是 array[0] 是 T ，array[1] 也是 T，這就是我們熟悉的陣列了。
+關於索引類型更詳細的說明請看 TypeScript 中文教程
+PropertyKey TypeScript 有一個內建類型 PropertyKey ，它代表可成為物件索引的三種類型 string | number | symbol。
+type PropertyKey = string | number | symbol 也就是說物件的索引可能有這三種類型，然而 number 索引在物件內部會被轉換成 string，所以 number 索引的類型只能是 string 索引的子類型。</description></item><item><title>type-fest 筆記</title><link>https://sayoko123f.github.io/p/type-fest-note/</link><pubDate>Fri, 25 Aug 2023 17:41:42 +0800</pubDate><guid>https://sayoko123f.github.io/p/type-fest-note/</guid><description>type-fest 筆記 type-fest 是包含 TypeScript 實用助手類型的庫。
+本處所有例子可複製至 TypeScript Playground 查看練習。
+// @ts-expect-error 代表預期下一行 TS 程式碼是有錯誤的。
+本文撰寫時使用的 TypeScript 版本為 5.2.2
+Opaque 不透明類型 不透明類型也被稱為品牌類型(brand)
+有時候我們會想要創建更安全、更容易被區分的類型。
+interface User { username: string; password: string; } 使用者名稱與密碼都是字串類型，但很顯然這兩個東西不應該被混淆使用，TypeScript 沒辦法區分這兩者有何不同。
+靠不透明類型，可以協助標記某些特別重要、需要明顯區分的類型。
+如果我們覺得 User 的 password 需要明顯區分，可以這樣寫：
+import { Opaque } from &amp;#39;type-fest&amp;#39; interface User { username: string; password: Opaque&amp;lt;string, &amp;#39;Password&amp;#39;&amp;gt;; } declare function confirmPassword(password: User[&amp;#39;password&amp;#39;]): void declare const user: User // @ts-expect-error confirmPassword(user.</description></item><item><title>Vue 3 表單驗證 Vee Vaildate 4 (使用組合式API)</title><link>https://sayoko123f.github.io/p/vue3-vee-vaildate/</link><pubDate>Sun, 19 Feb 2023 21:43:55 +0800</pubDate><guid>https://sayoko123f.github.io/p/vue3-vee-vaildate/</guid><description>Vue 3 表單驗證 Vee Vaildate 4 (使用組合式API) VeeValidDate Docs
+本文寫作時使用
+Vue 3.2.45 Vite 4.0.0 TypeScript 4.9.3 vee-validate 4.7.4 useField value import { useField } from &amp;#39;vee-validate&amp;#39;; const { value } = useField(&amp;#39;username&amp;#39;); useField 的第一個參數是必填，VeeValidDate 用來辨識欄位的 key。
+value 是一個 Ref ，用 v-model 接到 input 上面，value 會跟著使用者輸入改變。
+&amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;value&amp;#34;/&amp;gt; errorMessage useField 的第二個參數可以傳入一個函式，每次 value 改變的時候這個函式都會被呼叫，用來驗證 value 符不符合規則，如果符合規則就回傳 true；反之回傳 string 作為 errorMessage。
+以下我自訂一個規則函式，驗證 value 的值必須是 foo：
+function isFoo(value: string | undefined) { if (value === &amp;#39;foo&amp;#39;) { return true; } return &amp;#39;username must be &amp;#34;foo&amp;#34;!</description></item><item><title>Vite + Vue + TypeScript + Tailwindcss 起手式</title><link>https://sayoko123f.github.io/p/vite-vue-typescript-tailwindcss-template/</link><pubDate>Sat, 30 Apr 2022 16:32:38 +0800</pubDate><guid>https://sayoko123f.github.io/p/vite-vue-typescript-tailwindcss-template/</guid><description>Vite + Vue + TypeScript + Tailwindcss 起手式 文件 本筆記提到的 Vue 與 Vue 插件都為 Vue 3!
+create-vite
+Tailwindcss install guide
+tsconfig
+指令 使用 create-vite 安裝 vue-ts 模板
+npm create vite@latest my-vue-app -- --template vue-ts cd my-vue-app npm install 安裝 Tailwind
+npm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p Tailwindcss 設定檔案 tailwind.config.cjs
+/** @type {import(&amp;#39;tailwindcss&amp;#39;).Config} */ module.exports = { content: [ &amp;#34;./index.html&amp;#34;, &amp;#34;./src/**/*.{js,ts,vue}&amp;#34;, ], theme: { extend: {}, }, plugins: [], } 建立 .</description></item></channel></rss>

@@ -1,0 +1,254 @@
+<!doctype html><html lang=zh-tw><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="筆記 type-fest 的用法"><title>type-fest 筆記 - Sayoko123f</title><link href=/css/output.min.c4693ba68e9ecf89a2003aee7767c665b633b7af354308c30bf4572b43a5588c.css rel=stylesheet><script src=/js/devblog.min.a33f45493dcfb1bd5d05eefcfbdc20ae2e6c793c0937d22bf03fddbe18bbdc0b.js defer></script>
+<script>localStorage.theme==="dark"||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")</script></head><body class="bg-gray-50 text-black dark:bg-[#121212] dark:text-gray-100"><header class="flex h-11 items-center border-b border-black/20 px-4 dark:border-white/40"><nav class="mx-auto flex w-full max-w-4xl justify-between"><ul class="flex gap-4"><li><a class=font-bold href=https://sayoko123f.github.io/>首頁</a></li><li><a class=font-bold href=https://sayoko123f.github.io/p/>文章列表</a></li><li><a class=font-bold href=https://sayoko123f.github.io/about/>關於</a></li><li><a class=font-bold href=https://sayoko123f.github.io/tags/>分類</a></li></ul><ul class="flex gap-4"><li class="h-6 w-6"><a href=https://github.com/Sayoko123f title=github><svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" viewBox="0 0 24 24"><path fill="currentcolor" d="M10.898438 2.101562c-4.597657.5-8.296876 4.199219-8.796876 8.699219-.5 4.699219 2.199219 8.898438 6.296876 10.5C8.699219 21.398438 9 21.199219 9 20.800781V19.199219S8.601562 19.300781 8.101562 19.300781c-1.402343.0-2-1.199219-2.101562-1.902343C5.898438 17 5.699219 16.699219 5.398438 16.398438 5.101562 16.300781 5 16.300781 5 16.199219 5 16 5.300781 16 5.398438 16 6 16 6.5 16.699219 6.699219 17c.5.800781000000001 1.101562 1 1.402343 1C8.5 18 8.800781 17.898438 9 17.800781 9.101562 17.101562 9.398438 16.398438 10 16c-2.300781-.5-4-1.800781-4-4 0-1.101562.5-2.199219 1.199219-3C7.101562 8.800781 7 8.300781 7 7.601562c0-.402343.0-1 .300781-1.601562.0.0 1.398438.0 2.800781 1.300781C10.601562 7.101562 11.300781 7 12 7s1.398438.101562 2 .300781C15.300781 6 16.800781 6 16.800781 6 17 6.601562 17 7.199219 17 7.601562 17 8.398438 16.898438 8.800781 16.800781 9 17.5 9.800781 18 10.800781 18 12c0 2.199219-1.699219 3.5-4 4 .601562.5 1 1.398438 1 2.300781v2.597657C15 21.199219 15.300781 21.5 15.699219 21.398438 19.398438 19.898438 22 16.300781 22 12.101562c0-6-5.101562-10.703124-11.101562-10zm0 0"/></svg></a></li><li class="h-6 w-6"><button class=text-sky-500 aria-label="toggle light dark mode"><svg class="inline-block h-full w-full dark:hidden" id="light-mode-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentcolor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1A1 1 0 119 4V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707A1 1 0 1113.536 5.05l.707-.707a1 1 0 011.414.0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707A1 1 0 004.343 5.757l.707.707zm1.414 8.486-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg><svg class="hidden h-full w-full dark:inline-block" id="dark-mode-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentcolor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001.0 1010.586 10.586z"/></svg></button></li></ul></nav></header><div class="flex justify-center"><div class="hidden w-1/5 flex-grow lg:block"></div><div class="w-full max-w-2xl" id=content><main class=px-4><div class=py-4><div class=pb-2>2023年8月25日</div><div class="flex gap-1 flex-wrap"><a class="rounded bg-stone-200 dark:bg-stone-800 px-2 py-1" href=https://sayoko123f.github.io/tags/typescript/>TypeScript</a></div></div><article class="prose max-w-none dark:prose-invert"><h1 id=type-fest-筆記>type-fest 筆記</h1><p><a href=https://github.com/sindresorhus/type-fest>type-fest</a> 是包含 TypeScript 實用助手類型的庫。</p><p>本處所有例子可複製至 <a href=https://www.typescriptlang.org/play>TypeScript Playground</a> 查看練習。</p><p><code>// @ts-expect-error</code> 代表預期下一行 TS 程式碼是有錯誤的。</p><blockquote><p>本文撰寫時使用的 TypeScript 版本為 5.2.2</p></blockquote><h2 id=opaque-不透明類型>Opaque 不透明類型</h2><blockquote><p>不透明類型也被稱為品牌類型(brand)</p></blockquote><p>有時候我們會想要創建更安全、更容易被區分的類型。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>User</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>username</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>password</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>使用者名稱與密碼都是字串類型，但很顯然這兩個東西不應該被混淆使用，TypeScript 沒辦法區分這兩者有何不同。</p><p>靠不透明類型，可以協助標記某些特別重要、需要明顯區分的類型。</p><p>如果我們覺得 <code>User</code> 的 <code>password</code> 需要明顯區分，可以這樣寫：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Opaque</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>User</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>username</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>password</span>: <span style=color:#66d9ef>Opaque</span>&lt;<span style=color:#f92672>string</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#a6e22e>Password</span><span style=color:#960050;background-color:#1e0010>&#39;</span>&gt;;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>declare</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>confirmPassword</span>(<span style=color:#a6e22e>password</span>: <span style=color:#66d9ef>User</span>[<span style=color:#e6db74>&#39;password&#39;</span>])<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>declare</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span>: <span style=color:#66d9ef>User</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>confirmPassword</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>username</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>confirmPassword</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>password</span>);
+</span></span></code></pre></div><h2 id=requireoneornone-必填一個或不填>RequireOneOrNone 必填一個或不填</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>RequireOneOrNone</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Options</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1?</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2?</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example1</span>: <span style=color:#66d9ef>RequireOneOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example2</span>: <span style=color:#66d9ef>RequireOneOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example3</span>: <span style=color:#66d9ef>RequireOneOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example4</span>: <span style=color:#66d9ef>RequireOneOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {}
+</span></span></code></pre></div><p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p><p>底下是一個只判斷 opt1 跟 opt2 的例子， opt3 未納入判斷所以保持原樣(若必填就必填，可選就可選)：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>RequireOneOrNone</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Options</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1?</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2?</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt3?</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example5</span>: <span style=color:#66d9ef>RequireOneOrNone</span>&lt;<span style=color:#f92672>Options</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#a6e22e>opt1</span><span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#a6e22e>opt2</span><span style=color:#960050;background-color:#1e0010>&#39;</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt3</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=requireexactlyone-必填一個不可超過>RequireExactlyOne 必填一個，不可超過</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>RequireExactlyOne</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Options</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example1</span>: <span style=color:#66d9ef>RequireExactlyOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example2</span>: <span style=color:#66d9ef>RequireExactlyOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example3</span>: <span style=color:#66d9ef>RequireExactlyOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example4</span>: <span style=color:#66d9ef>RequireExactlyOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {}
+</span></span></code></pre></div><p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p><h2 id=requireatleastone-至少填一個>RequireAtLeastOne 至少填一個</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>RequireAtLeastOne</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Options</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example1</span>: <span style=color:#66d9ef>RequireAtLeastOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example2</span>: <span style=color:#66d9ef>RequireAtLeastOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example3</span>: <span style=color:#66d9ef>RequireAtLeastOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example4</span>: <span style=color:#66d9ef>RequireAtLeastOne</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {}
+</span></span></code></pre></div><p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p><h2 id=requireallornone-全填或全不填>RequireAllOrNone 全填或全不填</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>RequireAllOrNone</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Options</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example1</span>: <span style=color:#66d9ef>RequireAllOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example2</span>: <span style=color:#66d9ef>RequireAllOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ok
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example3</span>: <span style=color:#66d9ef>RequireAllOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt1</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>opt2</span>: <span style=color:#66d9ef>0</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example4</span>: <span style=color:#66d9ef>RequireAllOrNone</span>&lt;<span style=color:#f92672>Options</span>&gt; <span style=color:#f92672>=</span> {}
+</span></span></code></pre></div><p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p><h2 id=merge-合併>Merge 合併</h2><p>Merge 有兩個泛型參數，第二個類型會覆蓋第一個類型。</p><blockquote><p>此類型僅進行淺層合併，請看示例三，如果需要深度合併請見 MergeDeep</p></blockquote><h3 id=示例一>示例一</h3><p>用 <code>Bar1</code> 覆蓋了 <code>Foo1</code>，最終 <code>id</code> 為 <code>number</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#66d9ef>type</span> { <span style=color:#a6e22e>Merge</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Foo1</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Bar1</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example1</span>: <span style=color:#66d9ef>Merge</span>&lt;<span style=color:#f92672>Foo1</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>Bar1</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>1</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=示例二>示例二</h3><p><code>name</code> 可選被覆蓋成必填的例子。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Foo2</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name?</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Bar2</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example2</span>: <span style=color:#66d9ef>Merge</span>&lt;<span style=color:#f92672>Foo2</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>Bar2</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;John&#39;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=示例三>示例三</h3><p><code>data</code> 從 <code>{ foo: string; }</code> 被覆蓋成 <code>{ bar: string; }</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Foo3</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>foo</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Bar3</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bar</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example3</span>: <span style=color:#66d9ef>Merge</span>&lt;<span style=color:#f92672>Foo3</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>Bar3</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>foo</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;foo&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bar</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;bar&#39;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=overrideproperties-覆蓋>OverrideProperties 覆蓋</h2><p>和 Merge 類似，不同之處在於第二個類型只能有第一個類型存在的 <code>key</code>。</p><p>在想要修改原始類型而不增加額外的屬性時，使用此類型比 Merge 更安全。</p><p>下例因為第二個類型 <code>Bar</code> 有第一個類型沒有的 <code>bar</code> 屬性，所以報錯。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#66d9ef>type</span> { <span style=color:#a6e22e>OverrideProperties</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Foo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Bar</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>bar</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// @ts-expect-error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example</span>: <span style=color:#66d9ef>OverrideProperties</span>&lt;<span style=color:#f92672>Foo</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>Bar</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>bar</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;1&#39;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=mergedeep-深度合併>MergeDeep 深度合併</h2><p>Merge 的深度合併版本。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Foo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>foo</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Bar</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bar</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>example</span>: <span style=color:#66d9ef>MergeDeep</span>&lt;<span style=color:#f92672>Foo</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>Bar</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>foo</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;foo&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bar</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;bar&#39;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=literalunion-字面量聯合類型>LiteralUnion 字面量聯合類型</h2><p>這是為了應對 TypeScript 的已知限制而誕生的類型(詳情請見 <a href=https://github.com/Microsoft/TypeScript/issues/29729>issue</a>)</p><p>當我們在撰寫一個 <code>Color</code> 字串聯合類型時，我們希望允許 <code>#ffffff</code> 這樣的任意字串，但也希望提供 <code>'black'</code> 的預定義顏色。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;black&#39;</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mycolor</span>: <span style=color:#66d9ef>Color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span></code></pre></div><p>但是這會產生在編輯器中失去自動完成功能的問題。為了應對這個問題，利用 <code>LiteralUnion</code> 改寫即可保留自動完成功能。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#66d9ef>type</span> { <span style=color:#a6e22e>LiteralUnion</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>LiteralUnion</span><span style=color:#f92672>&lt;</span><span style=color:#e6db74>&#39;black&#39;</span>, <span style=color:#66d9ef>string</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mycolor</span>: <span style=color:#66d9ef>Color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span></code></pre></div><h2 id=valueof-取物件屬性值的聯合類型>ValueOf 取物件屬性值的聯合類型</h2><p>和 <code>T[keyof T]</code> 一樣。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#66d9ef>type</span> { <span style=color:#a6e22e>ValueOf</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Person</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>age</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>location</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>lat</span>: <span style=color:#66d9ef>number</span>, <span style=color:#a6e22e>lng</span>: <span style=color:#66d9ef>number</span>]
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ValueOf</span>&lt;<span style=color:#f92672>Person</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>// type A = string | number | [lat: number, lng: number]
+</span></span></span></code></pre></div><p>第二個泛型參數可以指定要哪幾個 key 的類型，預設是全部。</p><h2 id=conditionalkeys-取符合條件的-key>ConditionalKeys 取符合條件的 Key</h2><p>用來取得物件中符合條件的 key。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#66d9ef>type</span> { <span style=color:#a6e22e>ConditionalKeys</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;type-fest&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Person</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>age</span>: <span style=color:#66d9ef>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>location</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>lat</span>: <span style=color:#66d9ef>number</span>, <span style=color:#a6e22e>lng</span>: <span style=color:#66d9ef>number</span>]
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>address</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ConditionalKeys</span>&lt;<span style=color:#f92672>Person</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>string</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>// type A = &#34;name&#34; | &#34;address&#34;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>B</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ConditionalKeys</span>&lt;<span style=color:#f92672>Person</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>string</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>number</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>// type B = &#34;name&#34; | &#34;age&#34; | &#34;address&#34;
+</span></span></span></code></pre></div></article><div class="mt-8 border-t py-4"><div class="flex justify-between gap-8"><div class=w-1/2><a href=https://sayoko123f.github.io/p/vue3-vee-vaildate/>上一篇文章<br>Vue 3 表單驗證 Vee Vaildate 4 (使用組合式API)</a></div><div class="w-1/2 text-right"><a href=https://sayoko123f.github.io/p/what-is-tnumber/>下一篇文章<br>T[number] 是什麼</a></div></div></div></main></div><div class="relative hidden w-1/5 flex-grow lg:block"><aside class="fixed mt-3 h-full max-h-[calc(100vh-8rem)] overflow-y-auto break-all"><nav id=TableOfContents><ul><li><a href=#opaque-不透明類型>Opaque 不透明類型</a></li><li><a href=#requireoneornone-必填一個或不填>RequireOneOrNone 必填一個或不填</a></li><li><a href=#requireexactlyone-必填一個不可超過>RequireExactlyOne 必填一個，不可超過</a></li><li><a href=#requireatleastone-至少填一個>RequireAtLeastOne 至少填一個</a></li><li><a href=#requireallornone-全填或全不填>RequireAllOrNone 全填或全不填</a></li><li><a href=#merge-合併>Merge 合併</a><ul><li><a href=#示例一>示例一</a></li><li><a href=#示例二>示例二</a></li><li><a href=#示例三>示例三</a></li></ul></li><li><a href=#overrideproperties-覆蓋>OverrideProperties 覆蓋</a></li><li><a href=#mergedeep-深度合併>MergeDeep 深度合併</a></li><li><a href=#literalunion-字面量聯合類型>LiteralUnion 字面量聯合類型</a></li><li><a href=#valueof-取物件屬性值的聯合類型>ValueOf 取物件屬性值的聯合類型</a></li><li><a href=#conditionalkeys-取符合條件的-key>ConditionalKeys 取符合條件的 Key</a></li></ul></nav></aside></div></div><footer class="mt-8 border-t border-black/20 py-4 dark:border-white/40"><div class="flex flex-col items-center justify-center"><button id=goto-top-button class="opacity-60 hover:opacity-100" aria-label="scroll to top">
+回最上方🔺</button><div class=py-2><a class="inline-block h-6 w-6 opacity-60 hover:opacity-100" href=https://github.com/Sayoko123f title=Github><svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" viewBox="0 0 24 24"><path fill="currentcolor" d="M10.898438 2.101562c-4.597657.5-8.296876 4.199219-8.796876 8.699219-.5 4.699219 2.199219 8.898438 6.296876 10.5C8.699219 21.398438 9 21.199219 9 20.800781V19.199219S8.601562 19.300781 8.101562 19.300781c-1.402343.0-2-1.199219-2.101562-1.902343C5.898438 17 5.699219 16.699219 5.398438 16.398438 5.101562 16.300781 5 16.300781 5 16.199219 5 16 5.300781 16 5.398438 16 6 16 6.5 16.699219 6.699219 17c.5.800781000000001 1.101562 1 1.402343 1C8.5 18 8.800781 17.898438 9 17.800781 9.101562 17.101562 9.398438 16.398438 10 16c-2.300781-.5-4-1.800781-4-4 0-1.101562.5-2.199219 1.199219-3C7.101562 8.800781 7 8.300781 7 7.601562c0-.402343.0-1 .300781-1.601562.0.0 1.398438.0 2.800781 1.300781C10.601562 7.101562 11.300781 7 12 7s1.398438.101562 2 .300781C15.300781 6 16.800781 6 16.800781 6 17 6.601562 17 7.199219 17 7.601562 17 8.398438 16.898438 8.800781 16.800781 9 17.5 9.800781 18 10.800781 18 12c0 2.199219-1.699219 3.5-4 4 .601562.5 1 1.398438 1 2.300781v2.597657C15 21.199219 15.300781 21.5 15.699219 21.398438 19.398438 19.898438 22 16.300781 22 12.101562c0-6-5.101562-10.703124-11.101562-10zm0 0"/></svg></a></div><div class="text-sm opacity-60">© 2023 Sayoko123f Powered
+By Hugo</div></div></footer></body></html>

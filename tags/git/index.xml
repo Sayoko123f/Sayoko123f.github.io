@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on Sayoko123f</title><link>https://sayoko123f.github.io/tags/git/</link><description>Recent content in git on Sayoko123f</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sat, 16 Jan 2021 17:02:09 +0800</lastBuildDate><atom:link href="https://sayoko123f.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>我的 Git 小抄</title><link>https://sayoko123f.github.io/p/git-note/</link><pubDate>Sat, 16 Jan 2021 17:02:09 +0800</pubDate><guid>https://sayoko123f.github.io/p/git-note/</guid><description>我的 Git 小抄 clone 使用 git clone 下載專案
+git clone https://github.com/Sayoko123f/cmx.git 指定分支
+git clone &amp;lt;repo URL&amp;gt; -b &amp;lt;branch name&amp;gt; 放棄本地更改並復原 查詢版本歷史記錄
+git log --oneline -n 保留現在檔案內容更改，僅還原 HEAD
+git reset HEAD git reset &amp;lt;SHA-1編號&amp;gt; 不保留現在的內容更改，復原檔案內容(小心使用)
+git reset --hard HEAD 復原到最近的 commit git reset --hard HEAD~ 等於 ~1 回復到上一個提交版本 git reset --hard HEAD~n n 等於往上第幾個提交版本 回復之前指定的提交版本 指定特定分支
+git reset --hard origin/&amp;lt;branch name&amp;gt; checkout 切換分支 git checkout &amp;lt;branch name&amp;gt; 在 checkout 命令給定 -b 參數執行，可以同時建立分支和切換。</description></item></channel></rss>
