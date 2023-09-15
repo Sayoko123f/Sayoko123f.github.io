@@ -349,3 +349,41 @@ type Color = LiteralUnion<'black', string>
 
 const mycolor: Color = ''
 ```
+
+## ValueOf 取物件屬性值的聯合類型
+
+和 `T[keyof T]` 一樣。
+
+```ts
+import type { ValueOf } from 'type-fest';
+
+interface Person {
+    name: string;
+    age: number;
+    location: [lat: number, lng: number]
+}
+
+type A = ValueOf<Person>
+// type A = string | number | [lat: number, lng: number]
+```
+
+第二個泛型參數可以指定要哪幾個 key 的類型，預設是全部。
+
+## ConditionalKeys 取符合條件的 Key
+
+```ts
+import type { ConditionalKeys } from 'type-fest';
+
+interface Person {
+    name: string;
+    age: number;
+    location: [lat: number, lng: number]
+    address: string;
+}
+
+type A = ConditionalKeys<Person, string>
+// type A = "name" | "address"
+
+type B = ConditionalKeys<Person, string | number>
+// type B = "name" | "age" | "address"
+```
