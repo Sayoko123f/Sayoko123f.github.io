@@ -371,6 +371,8 @@ type A = ValueOf<Person>
 
 ## ConditionalKeys 取符合條件的 Key
 
+用來取得物件中符合條件的 key。
+
 ```ts
 import type { ConditionalKeys } from 'type-fest';
 
