@@ -1,7 +1,7 @@
 baseURL = ''
 languageCode = 'zh-TW'
 title = 'Sayoko123f'
-theme = 'devblog'
+theme = 'devblog2'
 enableEmoji = true
 
 [Params]

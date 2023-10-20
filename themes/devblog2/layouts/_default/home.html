@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ partial "hero.html" . }}
+  <div class="flex sm:flex-row flex-col justify-center xl:ml-32">
+    <div class="grow bg-content-background text-content-text max-w-6xl sm:border-r-4 sm:border-content-border p-6">
+      {{ range site.RegularPages }}
+        <h2 class="text-3xl text-link underline-dotted"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        <div class="my-4">
+          {{ .Summary }}
+        </div>
+      {{ end }}
+
+    </div>
+    <div class="shrink-0 sm:w-1/4">
+      大概放得下十個字左右
+    </div>
+  </div>
+{{ end }}
