@@ -1,0 +1,439 @@
+<!DOCTYPE html><html lang="zh-TW"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.11.0"> <title>Node.js 與 MongoDB 學習筆記 | Welcome to Astro.</title><meta name="author" content="Sayoko123f"><meta name="description" content="An Astro theme."><meta property="og:site_name" content="Welcome to Astro."><meta property="og:url" content="https://www.my-site.dev/posts/node-use-mongodb"><meta property="og:title" content="Node.js 與 MongoDB 學習筆記 | Welcome to Astro."><meta property="og:description" content="An Astro theme."><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="twitter:url" content="https://www.my-site.dev/posts/node-use-mongodb"><meta name="twitter:title" content="Node.js 與 MongoDB 學習筆記 | Welcome to Astro."><meta name="twitter:description" content="An Astro theme."><link rel="alternate" type="application/rss+xml" title="Welcome to Astro." href="https://www.my-site.dev/rss.xml"><link rel="sitemap" href="/sitemap-index.xml"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Node.js 與 MongoDB 學習筆記","description":"Node.js 與 MongoDB 學習筆記","keywords":["Node.js","MongoDB"],"author":{"@type":"Person","name":"Sayoko123f","url":"https://www.my-site.dev/"},"datePublished":"2022-03-15T00:00:00.000Z","inLanguage":"zh-TW"}</script> <script>
+      function initDarkMode() {
+        const storageDarkValue = "dark";
+        const storageKey = "theme";
+        const systemMode = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+
+        const mode = localStorage.getItem(storageKey) || systemMode;
+        document.documentElement.classList.toggle(
+          "dark",
+          mode === storageDarkValue
+        );
+      }
+      initDarkMode();
+    </script><link rel="stylesheet" href="/_astro/_...id_.DSulWsr7.css">
+<link rel="stylesheet" href="/_astro/index.Bpep3Wwi.css">
+<style>.markdown{font-size:20px;color:var(--primary);--space-1: 2.14em;--space-2: 1.95em;--space-3: 1.72em;--space-4: 1.14em;--space-5: .94em;--line-height: 32px}.markdown p{letter-spacing:-.003em;line-height:var(--line-height);margin-top:var(--space-1);margin-bottom:-.46em;font-style:normal;word-break:break-word}.markdown h1+p,.markdown h2+p,.markdown h3+p,.markdown h4+p,.markdown h5+p,.markdown h6+p,.markdown h1+img,.markdown h2+img,.markdown h3+img,.markdown h4+img,.markdown h5+img,.markdown h6+img{margin-top:var(--space-5)}.markdown img{cursor:pointer}.markdown a{text-decoration:underline}.markdown blockquote{color:var(--secondary);font-size:28px;--line-height: 40px;margin-left:30px}.markdown ul{list-style:disc}.markdown ol{list-style:decimal}.markdown ul,.markdown ol{padding-left:30px;margin-top:var(--space-1)}.markdown li{margin-top:var(--space-4);margin-bottom:-.46em;letter-spacing:-.003em;line-height:32px}.markdown li>p{margin-top:0}.markdown h1,.markdown h2{letter-spacing:-.016em;line-height:30px;margin-top:var(--space-2);font-size:24px;margin-bottom:-.28em;font-weight:600}.markdown h3,.markdown h4,.markdown h5,.markdown h6{letter-spacing:0;line-height:24px;margin-top:var(--space-3);font-size:20px;margin-bottom:-.31em;font-weight:600}.markdown pre{margin-top:56px;padding:20px}.markdown hr{display:block;margin-top:32px;margin-bottom:10px;padding-top:24px;padding-bottom:10px;border:0;color:var(--primary)}.markdown hr:before{content:"";display:block;width:.2em;height:.2em;border-radius:50%;background-color:currentColor;margin:auto;transform:translateY(-15px);box-shadow:1.5em 0,-1.5em 0}:root.dark .markdown p,:root.dark .markdown li{color:var(--secondary)}:root.dark .markdown blockquote p,:root.dark .markdown strong{color:var(--primary)}
+</style>
+<link rel="stylesheet" href="/_astro/index.Cydod7Jy.css"></head> <body> <header class="fixed left-0 right-0 top-0 z-30 hidden h-appbar items-center justify-between border-b border-neutral bg-primary-bg px-6 transition-transform md:flex" style="transform: translateY(var(--appbar-transform-y));"> <nav class=""> <a href="/">Home</a> </nav> <nav class="flex"> <div class="flex gap-x-4"> <button id="search-open-button" popovertarget="search-popover" class="size-6" aria-label="搜尋" role="button"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="size-6" style="font-size: 1.5rem" aria-label="搜尋"> <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"></path> </svg></button> <a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#"> <div class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"> <path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path> </svg> </div>  </a><a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#"> <div class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"> <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path> </svg> </div>  </a><a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#">  Any Site </a> </div> <div class="mx-4 size-6 cursor-pointer text-secondary hover:text-primary" style="font-size: 1.5rem;"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" id="dark-mode-icon" class="hidden"><path fill="currentColor" d="M14 22q-2.05 0-3.875-.788t-3.187-2.15t-2.15-3.187T4 12q0-2.075.788-3.887t2.15-3.175t3.187-2.15T14 2q1.35 0 2.625.35t2.375 1q-2.275 1.325-3.637 3.588T14 12t1.363 5.063T19 20.65q-1.1.65-2.375 1T14 22"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" id="light-mode-icon" class="hidden"><path fill="currentColor" d="M12 17q-2.075 0-3.537-1.463T7 12t1.463-3.537T12 7t3.538 1.463T17 12t-1.463 3.538T12 17M2 13q-.425 0-.712-.288T1 12t.288-.712T2 11h2q.425 0 .713.288T5 12t-.288.713T4 13zm18 0q-.425 0-.712-.288T19 12t.288-.712T20 11h2q.425 0 .713.288T23 12t-.288.713T22 13zm-8-8q-.425 0-.712-.288T11 4V2q0-.425.288-.712T12 1t.713.288T13 2v2q0 .425-.288.713T12 5m0 18q-.425 0-.712-.288T11 22v-2q0-.425.288-.712T12 19t.713.288T13 20v2q0 .425-.288.713T12 23M5.65 7.05L4.575 6q-.3-.275-.288-.7t.288-.725q.3-.3.725-.3t.7.3L7.05 5.65q.275.3.275.7t-.275.7t-.687.288t-.713-.288M18 19.425l-1.05-1.075q-.275-.3-.275-.712t.275-.688q.275-.3.688-.287t.712.287L19.425 18q.3.275.288.7t-.288.725q-.3.3-.725.3t-.7-.3M16.95 7.05q-.3-.275-.288-.687t.288-.713L18 4.575q.275-.3.7-.288t.725.288q.3.3.3.725t-.3.7L18.35 7.05q-.3.275-.7.275t-.7-.275M4.575 19.425q-.3-.3-.3-.725t.3-.7l1.075-1.05q.3-.275.712-.275t.688.275q.3.275.288.688t-.288.712L6 19.425q-.275.3-.7.288t-.725-.288"></path></svg> </div> <script type="module">const d="dark-mode-icon",s="light-mode-icon",l="theme",n="dark";i();function i(){const t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",e=localStorage.getItem(l)||t;o(e);const c=document.getElementById(d),a=document.getElementById(s);c?.addEventListener("click",()=>o("light")),a?.addEventListener("click",()=>o("dark"))}function o(t){const e=document.getElementById(d);document.getElementById(s)?.classList.toggle("hidden",t===n),e?.classList.toggle("hidden",t!==n),document.documentElement.classList.toggle("dark",t===n),localStorage.setItem(l,t)}</script> </nav> <div id="search-popover" popover class="overflow-hidden rounded-lg w-full max-w-2xl bg-stone-50 dark:bg-gray-800"> <div class="DocSearch-Modal"> <search class="DocSearch-SearchBar"> <div class="DocSearch-Form"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-secondary"> <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"></path> </svg> <input id="search-keyword" type="text" class="DocSearch-Input" placeholder="站內搜尋"> </div> </search> <div id="DocSearch-Result" class="h-[336px] overflow-y-auto"></div> <script type="module">const d="search-keyword",i="DocSearch-Result";let l;document.querySelector(`#${d}`)?.addEventListener("input",r=>{l&&clearTimeout(l),l=window.setTimeout(()=>{m(r)},180)});async function m(r){const n=r.target,o=n.value;if(!o){u();return}if(o&&window.pagefind){const c=await window.pagefind.search(n.value),s=await Promise.all(c.results.map(t=>t.data())),a=[];for(const t of s){const e={content:t.content,excerpt:t.excerpt,title:t.meta.title,url:t.url};e.content&&e.excerpt&&e.title&&e.url&&(e.url.length>1&&e.url.at(-1)==="/"&&(e.url=e.url.slice(0,-1)),a.push(p(e)))}if(a.length===0){u();return}h(a)}}function p(r){const n=document.createElement("a");n.href=r.url,n.className="group block rounded-lg p-4 hover:bg-sky-600";const o=document.createElement("div");o.textContent=r.title,o.className="text-xl text-gray-400 group-hover:text-primary";const c=document.createElement("div");c.className="text-gray-400 group-hover:text-primary";const a=new DOMParser().parseFromString(r.excerpt,"text/html");return c.append(...[...a.body.childNodes].map(t=>{if(t.nodeType===Node.ELEMENT_NODE&&t.nodeName==="MARK"){const e=document.createElement("mark");return e.textContent=t.textContent,e.style.backgroundColor="#FFD700",e.style.color="#222",e}else if(t.nodeType===Node.TEXT_NODE)return document.createTextNode(t.textContent||"");return document.createTextNode("")})),n.appendChild(o),n.appendChild(c),n}function h(r){document.querySelector(`#${i}`).replaceChildren(...r)}function u(){document.querySelector(`#${i}`).replaceChildren()}</script> </div> </div> </header> <header class="fixed left-0 right-0 top-0 z-30 flex h-appbar items-center justify-between border-b border-neutral bg-primary-bg px-6 transition-transform md:hidden" style="transform: translateY(var(--appbar-transform-y));"> <nav class="text-lg font-bold"> <a href="/">Home</a> </nav> <button id="mobileMenuOpenButton" class="flex size-8 items-center justify-center text-secondary hover:text-primary" aria-label="開啟選單"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="size-8"> <path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"></path> </svg> </button> </header> <div id="mobileMenu" class="animate-fade-in fixed inset-0 z-50 hidden flex-col bg-primary-bg backdrop-blur-sm"> <div class="flex h-appbar items-center justify-between border-b border-neutral px-6"> <a href="/" class="text-lg font-bold">Home</a> <button id="mobileMenuCloseButton" class="flex size-8 items-center justify-center text-secondary hover:text-primary" aria-label="關閉選單"> <span style="font-size:2rem;">x</span> </button> </div> <nav class="flex flex-1 flex-col gap-6 overflow-y-auto p-8 text-lg"> <div class="flex flex-col gap-4"> <a class="flex items-center gap-x-2 hover:underline" href="#"> <span class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"> <path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path> </svg> </span>  </a><a class="flex items-center gap-x-2 hover:underline" href="#"> <span class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"> <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path> </svg> </span>  </a><a class="flex items-center gap-x-2 hover:underline" href="#">  Any Site </a> </div> </nav> </div> <script type="module">function e(){document.getElementById("mobileMenu").classList.add("flex"),document.getElementById("mobileMenu").classList.remove("hidden")}function n(){document.getElementById("mobileMenu").classList.remove("flex"),document.getElementById("mobileMenu").classList.add("hidden")}document.getElementById("mobileMenuOpenButton").addEventListener("pointerdown",e);document.getElementById("mobileMenuCloseButton").addEventListener("pointerdown",n);</script> <div class="h-appbar"></div>   <article class="mx-auto max-w-[680px] px-6" data-pagefind-body> <h1 class="post-title">Node.js 與 MongoDB 學習筆記</h1> <time class="mt-4 block text-sm text-gray-500" datetime="2022-03-15T00:00:00.000Z"> 3/15/2022  </time>  <div class="markdown mb-[68px] max-w-4xl"> <h1 id="nodejs-與-mongodb-學習筆記">Node.js 與 MongoDB 學習筆記</h1>
+<p>本筆記主要會記錄在 Node.js 應用中連接 MongoDB Atlas 的操作方法，如果讀者發現任何錯誤或值得討論的地方，請不吝指教。</p>
+<p>環境為 <code>Node.js v14.17.4</code>，<code>MongoDB</code> 是在 <a href="https://www.mongodb.com/">MongoDB Atlas</a> 申請 <code>shared</code> 的免費方案。</p>
+<h2 id="文件">文件</h2>
+<ul>
+<li><a href="https://docs.mongodb.com/manual/">MongoDB 手冊</a></li>
+<li><a href="https://docs.mongodb.com/drivers/node/current/">MongoDB Node.js driver</a></li>
+<li><a href="https://mongodb.github.io/node-mongodb-native/4.2/">MongoDB NoDe.js driver API</a></li>
+</ul>
+<h2 id="準備">準備</h2>
+<h3 id="安裝驅動">安裝驅動</h3>
+<p><a href="https://www.npmjs.com/package/mongodb">npm</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>npm i mongodb</span></span></code></pre>
+<h3 id="建立測試資料">建立測試資料</h3>
+<p><strong>MongoDB Atlas</strong> 有提供一組資料集可以用來測試練習，在控制台按 <code>Load Sample Dataset</code> 就可以載入了，可參考這裡有一篇鐵人賽關於<a href="https://ithelp.ithome.com.tw/articles/10268405">建立 Atlas 的教學</a>寫得很詳細，。另外本文也在 <code>sample_airbnb</code> 資料庫底下建立了一個空的資料集名為 <code>practiceData</code>。</p>
+<h2 id="連接">連接</h2>
+<p>連接需要一組 <strong>uri</strong> ，在 MongoDB 的控制台可以複製，本文會使用帳號密碼的方式連接，至於使用證書連接的方式，則待日後再研究了。</p>
+<p>假設密碼放在父目錄的 <code>.env json</code> 檔案，注意帳號密碼如果有特殊字元要使用 <code>encodeURIComponent</code>進行編碼。</p>
+<p>下方程式碼為進行連接，以及關閉。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> fs</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'fs'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> path</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'path'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> env</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(fs.</span><span style="color:#B392F0">readFileSync</span><span style="color:#E1E4E8">(path.</span><span style="color:#B392F0">resolve</span><span style="color:#E1E4E8">(__dirname, </span><span style="color:#9ECBFF">'../.env'</span><span style="color:#E1E4E8">)));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">MongoClient</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'mongodb'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> uri</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> `mongodb+srv://ressha:${</span><span style="color:#B392F0">encodeURIComponent</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">env</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">password</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}@ressha.exbn3.mongodb.net/myFirstDatabase?retryWrites=true&#x26;w=majority`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> client</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> MongoClient</span><span style="color:#E1E4E8">(uri, { useNewUrlParser: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">, useUnifiedTopology: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6A737D">    // write CRUD Here</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h2 id="操作">操作</h2>
+<h3 id="列出可連接的資料庫">列出可連接的資料庫</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> databasesList</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">admin</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">listDatabases</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    databasesList.databases.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">db</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">` - ${</span><span style="color:#E1E4E8">db</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">name</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<p>輸出：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span> - sample_airbnb</span></span>
+<span class="line"><span> - sample_analytics</span></span>
+<span class="line"><span> - sample_geospatial</span></span>
+<span class="line"><span> - sample_mflix</span></span>
+<span class="line"><span> - sample_restaurants</span></span>
+<span class="line"><span> - sample_supplies</span></span>
+<span class="line"><span> - sample_training</span></span>
+<span class="line"><span> - sample_weatherdata</span></span>
+<span class="line"><span> - admin</span></span>
+<span class="line"><span> - local</span></span></code></pre>
+<h3 id="連接指定資料庫">連接指定資料庫</h3>
+<p>連接之後，列出資料庫內 <code>Collection(下稱資料集)</code> 的名稱。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> db</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_airbnb'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> lists</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> db.</span><span style="color:#B392F0">listCollections</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">toArray</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(lists);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<p>輸出：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">[</span></span>
+<span class="line"><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'listingsAndReviews'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    type: </span><span style="color:#9ECBFF">'collection'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    options: {},</span></span>
+<span class="line"><span style="color:#E1E4E8">    info: {</span></span>
+<span class="line"><span style="color:#E1E4E8">      readOnly: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      uuid: </span><span style="color:#F97583">new</span><span style="color:#B392F0"> Binary</span><span style="color:#E1E4E8">(Buffer.</span><span style="color:#B392F0">from</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"6cf29ecf5114445fb8afed2b08929bca"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"hex"</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">    idIndex: { v: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, key: [Object], name: </span><span style="color:#9ECBFF">'_id_'</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'practiceData'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    type: </span><span style="color:#9ECBFF">'collection'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    options: {},</span></span>
+<span class="line"><span style="color:#E1E4E8">    info: {</span></span>
+<span class="line"><span style="color:#E1E4E8">      readOnly: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      uuid: </span><span style="color:#F97583">new</span><span style="color:#B392F0"> Binary</span><span style="color:#E1E4E8">(Buffer.</span><span style="color:#B392F0">from</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"c9521cc8fe504a53b5ec4e530b3c18af"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"hex"</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">    idIndex: { v: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, key: [Object], name: </span><span style="color:#9ECBFF">'_id_'</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">]</span></span></code></pre>
+<p>連接指定資料集</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_airbnb'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'practiceData'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<p>可寫成一個函式：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> connect</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">mongo</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> env;</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> uri</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> mongo.</span><span style="color:#79B8FF">URI</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> client</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> MongoClient</span><span style="color:#E1E4E8">(uri, { useNewUrlParser: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">, useUnifiedTopology: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(mongo.database).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'lab'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> { client, collection };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>使用：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">client</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">collection</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> connect</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<h3 id="新增資料">新增資料</h3>
+<p>以下將在 <code>sample_airbnb.practiceData</code> 新增資料。</p>
+<h4 id="dbcollectioninsertone">db.collection.insertOne</h4>
+<p>第一個參數要傳入由 <strong>document</strong> 組成的陣列，如果不用 Promise 而用回調函數，則在第二個參數傳入回調函數(本文示例皆使用 Promise)。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_airbnb'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'practiceData'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">insertOne</span><span style="color:#E1E4E8">({ foo: </span><span style="color:#9ECBFF">'bar'</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(result.insertedId);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // new ObjectId("61d6b88ce903d92d7b8fe181")</span></span></code></pre>
+<p><code>result.insertedId</code> 返回成功插入後的 <code>ObjectId</code>。</p>
+<h4 id="dbcollectioninsertmany">db.collection.insertMany</h4>
+<p>第一個參數要傳入由 <strong>document</strong> 組成的陣列。</p>
+<p>第二個參數可傳入選項物件，<code>ordered</code> 默認為 <code>true</code>，表示文件將按照順序插入，如果過程出錯了會馬上停止；否則會無序插入且錯誤發生時將繼續執行不停止，<code>mongod</code> 可能會重新排序以提升性能。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_airbnb'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'practiceData'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> docs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#E1E4E8">        { name: </span><span style="color:#9ECBFF">'hi'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">        { name: </span><span style="color:#9ECBFF">'hello'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">        { name: </span><span style="color:#9ECBFF">'hey'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">insertMany</span><span style="color:#E1E4E8">(docs);</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(result.insertedIds);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // {</span></span>
+<span class="line"><span style="color:#6A737D">    // '0': new ObjectId("61d6ba3c3d3bea7ca1f2842b"),</span></span>
+<span class="line"><span style="color:#6A737D">    // '1': new ObjectId("61d6ba3c3d3bea7ca1f2842c"),</span></span>
+<span class="line"><span style="color:#6A737D">    // '2': new ObjectId("61d6ba3c3d3bea7ca1f2842d")</span></span>
+<span class="line"><span style="color:#6A737D">    // }</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h3 id="查詢資料">查詢資料</h3>
+<p>MongoDB 很貼心幫我們準備了 <strong>Sample Dataset</strong>，就用它來練習吧！進到控制台內看看有哪些值得查詢的資料。</p>
+<h4 id="findone-查詢一筆">findOne 查詢一筆</h4>
+<p>返回第一個符合匹配條件的文件，找不到是返回 <code>null</code>。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">findOne</span><span style="color:#E1E4E8">({ title: </span><span style="color:#9ECBFF">'Blacksmith Scene'</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(res);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // _id: new ObjectId("573a1390f29313caabcd4135"),</span></span>
+<span class="line"><span style="color:#6A737D">    // plot: 'Three men hammer on an anvil and pass a bottle of beer around.',</span></span>
+<span class="line"><span style="color:#6A737D">    // etc...</span></span>
+<span class="line"><span style="color:#E1E4E8">})();   </span></span></code></pre>
+<h5 id="根據-objectid">根據 ObjectId</h5>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { MongoClient, ObjectId } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "mongodb"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> show</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">_id</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">client</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">collection</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> docs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { _id: </span><span style="color:#F97583">new</span><span style="color:#B392F0"> ObjectId</span><span style="color:#E1E4E8">(_id), type: </span><span style="color:#9ECBFF">'album'</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> data</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">findOne</span><span style="color:#E1E4E8">(docs);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> data;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h4 id="find-查詢多筆">find 查詢多筆</h4>
+<p>查詢所有符合條件的文件，因為可能會有超大量的結果，所以返回的是 <strong>文件指針</strong>，附上<a href="https://docs.mongodb.com/drivers/node/current/usage-examples/find/">詳細文件參考</a> ，如果找不到符合條件的文件則返回空指針。</p>
+<p>文件指針有幾個實用的方法：</p>
+<ul>
+<li>count()</li>
+<li>toArray()</li>
+<li>forEach()</li>
+<li>next()
+<ul>
+<li>tryNext()</li>
+<li>hasNext()</li>
+</ul>
+</li>
+<li>limit()</li>
+<li>map()</li>
+<li>sort()</li>
+</ul>
+<h5 id="count">count()</h5>
+<p>查詢 1916 年的電影數量。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1916</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> count</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(count); </span><span style="color:#6A737D">// 4</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h5 id="toarray">toArray()</h5>
+<p><code>※小心使用</code>將結果轉換為陣列。如果資料量太多，記憶體可能會爆掉，最好加上 limit 限制筆數，或是確定資料不會太多才使用。</p>
+<p>如果指針不是初始狀態，已經有移動過，那麼只會返回尚未訪問的文件。如果需要重置指針使用 <code>cursor.rewind()</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1916</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">toArray</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(result);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<p>輸出</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[</span></span>
+<span class="line"><span>  {</span></span>
+<span class="line"><span>    _id: new ObjectId("573a1390f29313caabcd5a93"),</span></span>
+<span class="line"><span>    ...</span></span>
+<span class="line"><span>  },</span></span>
+<span class="line"><span>  {</span></span>
+<span class="line"><span>    _id: new ObjectId("573a1390f29313caabcd5b9a"),</span></span>
+<span class="line"><span>    ...</span></span>
+<span class="line"><span>  },</span></span>
+<span class="line"><span>  etc...</span></span>
+<span class="line"><span>]</span></span></code></pre>
+<h5 id="foreach">forEach()</h5>
+<p>查詢 1916 年的電影標題並輸出。</p>
+<p>這裡用到選項物件屬性 <code>projection</code> ，如果有設定這個屬性，則只會返回需要的欄位。<code>_id</code> 欄位默認是返回，如果不想返回就設為 <code>0</code>。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> } };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1916</span><span style="color:#E1E4E8"> }, options);</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">item</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(item.title));</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // Civilization</span></span>
+<span class="line"><span style="color:#6A737D">    // Hell's Hinges</span></span>
+<span class="line"><span style="color:#6A737D">    // Intolerance: Love's Struggle Throughout the Ages</span></span>
+<span class="line"><span style="color:#6A737D">    // Where Are My Children?    </span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h5 id="next">next()</h5>
+<p>一筆一筆取結果，如果不想用 <code>forEach</code>，可以用這個。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, _id: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> } };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1950</span><span style="color:#E1E4E8"> }, options);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">hasNext</span><span style="color:#E1E4E8">()) {</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> item</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">next</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(item.title);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // 69</span></span>
+<span class="line"><span style="color:#6A737D">    // Mi adorado Juan</span></span>
+<span class="line"><span style="color:#6A737D">    // Orpheus</span></span>
+<span class="line"><span style="color:#6A737D">    // ......</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h5 id="limit">limit()</h5>
+<p>限制傳回最大筆數，常和好朋友 <code>skip</code> 搭配使用，<code>skip</code> 可以略過前幾筆(相當於 SQL 的 limit/offset)。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1950</span><span style="color:#E1E4E8"> }, options).</span><span style="color:#B392F0">limit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">skip</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>也可以寫在選項裡</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, _id: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> }, limit: </span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">, skip: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8"> };</span></span></code></pre>
+<h5 id="map">map()</h5>
+<p>類似於原生陣列的 <code>Array.map</code>，輸入變換函式將查詢結果進行變換。</p>
+<p>查詢 1916 年所有電影標題並將英文字母轉換為大寫。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, _id: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> } };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1950</span><span style="color:#E1E4E8"> }, options)</span></span>
+<span class="line"><span style="color:#E1E4E8">        .</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">doc</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> ({ title: doc.title.</span><span style="color:#B392F0">toUpperCase</span><span style="color:#E1E4E8">(), </span><span style="color:#F97583">...</span><span style="color:#E1E4E8">doc }));</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> item </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (item </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">next</span><span style="color:#E1E4E8">()) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(item);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // output</span></span>
+<span class="line"><span style="color:#6A737D">    // 69</span></span>
+<span class="line"><span style="color:#6A737D">    // { title: 'MI ADORADO JUAN' }</span></span>
+<span class="line"><span style="color:#6A737D">    // { title: 'ORPHEUS' }</span></span>
+<span class="line"><span style="color:#6A737D">    // ......</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<h5 id="sort">sort()</h5>
+<p>傳入一個物件指定要排序的屬性，設定 1 為升序， -1 為降序。</p>
+<p>查詢 1950 年的電影並依照標題進行排序，限制最大 15 筆。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> collection</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">db</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sample_mflix'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">collection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'movies'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, _id: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> }, limit: </span><span style="color:#79B8FF">15</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: </span><span style="color:#79B8FF">1950</span><span style="color:#E1E4E8"> }, options).</span><span style="color:#B392F0">sort</span><span style="color:#E1E4E8">({ title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">toArray</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    await</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">})();</span></span></code></pre>
+<p>輸出</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>// 升序</span></span>
+<span class="line"><span>[</span></span>
+<span class="line"><span>  { title: 'All About Eve' },</span></span>
+<span class="line"><span>  { title: 'Annie Get Your Gun' },</span></span>
+<span class="line"><span>  { title: 'Bajaja' },</span></span>
+<span class="line"><span>  { title: 'Born Yesterday' },</span></span>
+<span class="line"><span>  { title: 'Brigada criminal' },</span></span>
+<span class="line"><span>  { title: 'Broken Arrow' },</span></span>
+<span class="line"><span>  { title: 'Caged' },</span></span>
+<span class="line"><span>  { title: 'Cinderella' },</span></span>
+<span class="line"><span>  { title: 'Cyrano de Bergerac' },</span></span>
+<span class="line"><span>  { title: 'D.O.A.' },</span></span>
+<span class="line"><span>  { title: 'Das doppelte Lottchen' },</span></span>
+<span class="line"><span>  { title: 'Destination Moon' },</span></span>
+<span class="line"><span>  { title: "Devil's Doorway" },</span></span>
+<span class="line"><span>  { title: 'Edge of Doom' },</span></span>
+<span class="line"><span>  { title: 'El hombre sin rostro' }</span></span>
+<span class="line"><span>]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 降序</span></span>
+<span class="line"><span>[</span></span>
+<span class="line"><span>  { title: "Winchester '73" },</span></span>
+<span class="line"><span>  { title: 'When Willie Comes Marching Home' },</span></span>
+<span class="line"><span>  { title: 'Variety Lights' },</span></span>
+<span class="line"><span>  { title: 'Trio' },</span></span>
+<span class="line"><span>  { title: 'Trio' },</span></span>
+<span class="line"><span>  { title: 'Trio' },</span></span>
+<span class="line"><span>  { title: 'Trio' },</span></span>
+<span class="line"><span>  { title: 'Treasure Island' },</span></span>
+<span class="line"><span>  { title: 'Three Little Words' },</span></span>
+<span class="line"><span>  { title: 'The West Point Story' },</span></span>
+<span class="line"><span>  { title: 'The Sound of Fury' },</span></span>
+<span class="line"><span>  { title: 'The Munekata Sisters' },</span></span>
+<span class="line"><span>  { title: 'The Men' },</span></span>
+<span class="line"><span>  { title: 'The Magnificent Yankee' },</span></span>
+<span class="line"><span>  { title: 'The Lawless' }</span></span>
+<span class="line"><span>]</span></span></code></pre>
+<h4 id="條件查詢">條件查詢</h4>
+<p><a href="https://docs.mongodb.com/manual/tutorial/query-documents/">文件</a>、<a href="https://docs.mongodb.com/manual/reference/operator/query/#std-label-query-selectors">運算符</a></p>
+<p>以下示例省略連接和關閉過程。</p>
+<h5 id="文字搜尋">文字搜尋</h5>
+<p>$text 運算符有限制只能在文字索引的欄位上搜尋，其它還有一些限制請參考文件。</p>
+<p>查詢 <code>fullplot</code> 欄位內含有 <code>New York</code> 文字的電影標題，限制 5 筆。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    limit: </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ $text: { $search: </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">New York</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> } }, options);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">toArray</span><span style="color:#E1E4E8">());</span></span></code></pre>
+<h5 id="數字範圍">數字範圍</h5>
+<p>查詢年份在 1940-1950 之間的電影數量。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ year: { $gte: </span><span style="color:#79B8FF">1940</span><span style="color:#E1E4E8">, $lte: </span><span style="color:#79B8FF">1950</span><span style="color:#E1E4E8"> } });</span></span>
+<span class="line"><span style="color:#6A737D">// const cursor = collection.find({ year: { $gt: 1939, $lt: 1951 } });</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">());</span></span></code></pre>
+<h5 id="and">AND</h5>
+<p>查詢 <code>fullplot</code> 欄位內含有 <code>New York</code> 文字且 <code>imdb.rating</code> 大於 8 且 <code>tomatoes.viewer.numReviews</code> 大於 1000 的電影數量。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ $text: { $search: </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">New York</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> }, </span><span style="color:#9ECBFF">'imdb.rating'</span><span style="color:#E1E4E8">: { $gt: </span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8"> }, </span><span style="color:#9ECBFF">'tomatoes.viewer.numReviews'</span><span style="color:#E1E4E8">: { $gt: </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8"> } });</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">());</span></span></code></pre>
+<h5 id="or">OR</h5>
+<p>查詢年份等於 1945 年或等於 1955 年的電影並返回標題和年份，限制 15 筆，依標題升序排序。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    projection: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, year: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    sort: { title: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    limit: </span><span style="color:#79B8FF">15</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ $or: [{ year: </span><span style="color:#79B8FF">1945</span><span style="color:#E1E4E8"> }, { year: </span><span style="color:#79B8FF">1955</span><span style="color:#E1E4E8"> }] }, options);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">toArray</span><span style="color:#E1E4E8">());</span></span></code></pre>
+<h5 id="查詢陣列">查詢陣列</h5>
+<p>查詢 <code>cast</code> 內擁有名字以 <code>James</code> 開頭的演員的電影數量。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> cursor</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> collection.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">({ cast: { $regex:</span><span style="color:#9ECBFF"> /</span><span style="color:#F97583">^</span><span style="color:#DBEDFF">James</span><span style="color:#79B8FF">.</span><span style="color:#F97583">+?</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8"> } });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> cursor.</span><span style="color:#B392F0">count</span><span style="color:#E1E4E8">());</span></span></code></pre> </div> <div class="flex flex-wrap gap-x-2 gap-y-5"> <a href="/tag/Node.js"> <span class="rounded-3xl bg-neutral px-4 py-2 text-sm"> Node.js </span> </a><a href="/tag/MongoDB"> <span class="rounded-3xl bg-neutral px-4 py-2 text-sm"> MongoDB </span> </a> </div> <div class="pb-[140px]"></div> </article> <footer class="mx-6 bg-footer-bg pt-[72px]"> <div class="mx-auto max-w-[680px]"> <div class="mb-4 size-[72px] overflow-hidden"> <img class="max-h-full rounded-full object-contain" src="/_astro/avatar.CcO8LhTO.png" alt="Sayoko123f"> </div> <div class="text-2xl">Sayoko123f</div> <div class="mt-4 text-sm">一名前端阿宅</div> <div class="border-b border-footer-neutral pb-10"></div> <div class="pb-16 pt-10"> <div class="mb-12 text-2xl">More</div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2"> <a class="grid grid-cols-subgrid" href="/posts/chinese-font-split"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">CSS 載入自訂中文字體並分割</h2> <p class="post-subtitle line-clamp-2"> CSS 載入自訂中文字體並分割 </p> <div class="mt-auto"> 7/23/2025 </div> </a><a class="grid grid-cols-subgrid" href="/posts/what-is-tnumber"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">T[number] 是什麼</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 8/28/2023 </div> </a><a class="grid grid-cols-subgrid" href="/posts/type-fest-note"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">type-fest 筆記</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 8/25/2023 </div> </a><a class="grid grid-cols-subgrid" href="/posts/vue3-vee-vaildate"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">Vue 3 表單驗證 Vee Vaildate 4 (使用組合式API)</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 2/19/2023 </div> </a> </div> </div> </div> </footer> <script type="module">function n(){const o=new IntersectionObserver(async r=>{for(const t of r){if(!t.isIntersecting)return;const c=t.target.dataset.youtube;if(!c)return;o.unobserve(t.target);const e=document.createElement("iframe");e.classList.add("w-full","aspect-video"),e.src=`https://www.youtube-nocookie.com/embed/${c}`,e.title="Youtube Video Player",e.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",e.referrerPolicy="strict-origin-when-cross-origin",e.setAttribute("allowfullscreen",""),t.target.replaceWith(e)}});for(const r of document.querySelectorAll("[data-youtube]"))o.observe(r)}n();</script> <script type="module" src="/_astro/_...id_.astro_astro_type_script_index_1_lang.Dva2GyI9.js"></script>  <script>(function(){const scriptUrl = "/pagefind/pagefind.js";
+
+async function loadPagefind() {
+    try {
+        const response = await fetch(scriptUrl, { method: 'HEAD' });
+        if (!response.ok) {
+            throw new Error(`Pagefind script not found: ${response.status}`);
+        }
+
+        const pagefind = await import(scriptUrl);
+
+        await pagefind.options({
+            excerptLength: 20
+        });
+
+        window.pagefind = pagefind;
+
+        document.dispatchEvent(new CustomEvent('pagefindready'));
+    } catch (error) {
+        console.error('Failed to load Pagefind:', error);
+        window.pagefind = {
+            search: () => Promise.resolve({ results: [] }),
+            options: () => Promise.resolve(),
+        };
+        document.dispatchEvent(new CustomEvent('pagefindloaderror'));
+        console.log('Pagefind load error, event dispatched.');
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadPagefind);
+} else {
+    loadPagefind();
+}
+})();</script> <script type="module">function r(t,n){let l=null;return(...e)=>{l===null&&(t.apply(null,e),l=window.setTimeout(()=>{l=null},n))}}let o=0;const c=r(u,40);window.addEventListener("scroll",()=>{c()},{passive:!0});function u(){const t=window.scrollY;t-o>0?i():p(),o=t}function i(){document.documentElement.style.setProperty("--appbar-transform-y","calc(var(--appbar-height) * -1)")}function p(){document.documentElement.style.setProperty("--appbar-transform-y","0")}</script> </body> </html>

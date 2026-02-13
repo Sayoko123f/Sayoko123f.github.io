@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="zh-TW"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.11.0"> <title>type-fest 筆記 | Welcome to Astro.</title><meta name="author" content="Sayoko123f"><meta name="description" content="An Astro theme."><meta property="og:site_name" content="Welcome to Astro."><meta property="og:url" content="https://www.my-site.dev/posts/type-fest-note"><meta property="og:title" content="type-fest 筆記 | Welcome to Astro."><meta property="og:description" content="An Astro theme."><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="twitter:url" content="https://www.my-site.dev/posts/type-fest-note"><meta name="twitter:title" content="type-fest 筆記 | Welcome to Astro."><meta name="twitter:description" content="An Astro theme."><link rel="alternate" type="application/rss+xml" title="Welcome to Astro." href="https://www.my-site.dev/rss.xml"><link rel="sitemap" href="/sitemap-index.xml"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"type-fest 筆記","description":"type-fest 筆記","keywords":["TypeScript"],"author":{"@type":"Person","name":"Sayoko123f","url":"https://www.my-site.dev/"},"datePublished":"2023-08-25T00:00:00.000Z","inLanguage":"zh-TW"}</script> <script>
+      function initDarkMode() {
+        const storageDarkValue = "dark";
+        const storageKey = "theme";
+        const systemMode = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+
+        const mode = localStorage.getItem(storageKey) || systemMode;
+        document.documentElement.classList.toggle(
+          "dark",
+          mode === storageDarkValue
+        );
+      }
+      initDarkMode();
+    </script><link rel="stylesheet" href="/_astro/_...id_.DSulWsr7.css">
+<link rel="stylesheet" href="/_astro/index.Bpep3Wwi.css">
+<style>.markdown{font-size:20px;color:var(--primary);--space-1: 2.14em;--space-2: 1.95em;--space-3: 1.72em;--space-4: 1.14em;--space-5: .94em;--line-height: 32px}.markdown p{letter-spacing:-.003em;line-height:var(--line-height);margin-top:var(--space-1);margin-bottom:-.46em;font-style:normal;word-break:break-word}.markdown h1+p,.markdown h2+p,.markdown h3+p,.markdown h4+p,.markdown h5+p,.markdown h6+p,.markdown h1+img,.markdown h2+img,.markdown h3+img,.markdown h4+img,.markdown h5+img,.markdown h6+img{margin-top:var(--space-5)}.markdown img{cursor:pointer}.markdown a{text-decoration:underline}.markdown blockquote{color:var(--secondary);font-size:28px;--line-height: 40px;margin-left:30px}.markdown ul{list-style:disc}.markdown ol{list-style:decimal}.markdown ul,.markdown ol{padding-left:30px;margin-top:var(--space-1)}.markdown li{margin-top:var(--space-4);margin-bottom:-.46em;letter-spacing:-.003em;line-height:32px}.markdown li>p{margin-top:0}.markdown h1,.markdown h2{letter-spacing:-.016em;line-height:30px;margin-top:var(--space-2);font-size:24px;margin-bottom:-.28em;font-weight:600}.markdown h3,.markdown h4,.markdown h5,.markdown h6{letter-spacing:0;line-height:24px;margin-top:var(--space-3);font-size:20px;margin-bottom:-.31em;font-weight:600}.markdown pre{margin-top:56px;padding:20px}.markdown hr{display:block;margin-top:32px;margin-bottom:10px;padding-top:24px;padding-bottom:10px;border:0;color:var(--primary)}.markdown hr:before{content:"";display:block;width:.2em;height:.2em;border-radius:50%;background-color:currentColor;margin:auto;transform:translateY(-15px);box-shadow:1.5em 0,-1.5em 0}:root.dark .markdown p,:root.dark .markdown li{color:var(--secondary)}:root.dark .markdown blockquote p,:root.dark .markdown strong{color:var(--primary)}
+</style>
+<link rel="stylesheet" href="/_astro/index.Cydod7Jy.css"></head> <body> <header class="fixed left-0 right-0 top-0 z-30 hidden h-appbar items-center justify-between border-b border-neutral bg-primary-bg px-6 transition-transform md:flex" style="transform: translateY(var(--appbar-transform-y));"> <nav class=""> <a href="/">Home</a> </nav> <nav class="flex"> <div class="flex gap-x-4"> <button id="search-open-button" popovertarget="search-popover" class="size-6" aria-label="搜尋" role="button"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="size-6" style="font-size: 1.5rem" aria-label="搜尋"> <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"></path> </svg></button> <a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#"> <div class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"> <path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path> </svg> </div>  </a><a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#"> <div class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"> <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path> </svg> </div>  </a><a class="flex flex-shrink-0 gap-x-2 hover:underline" href="#">  Any Site </a> </div> <div class="mx-4 size-6 cursor-pointer text-secondary hover:text-primary" style="font-size: 1.5rem;"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" id="dark-mode-icon" class="hidden"><path fill="currentColor" d="M14 22q-2.05 0-3.875-.788t-3.187-2.15t-2.15-3.187T4 12q0-2.075.788-3.887t2.15-3.175t3.187-2.15T14 2q1.35 0 2.625.35t2.375 1q-2.275 1.325-3.637 3.588T14 12t1.363 5.063T19 20.65q-1.1.65-2.375 1T14 22"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" id="light-mode-icon" class="hidden"><path fill="currentColor" d="M12 17q-2.075 0-3.537-1.463T7 12t1.463-3.537T12 7t3.538 1.463T17 12t-1.463 3.538T12 17M2 13q-.425 0-.712-.288T1 12t.288-.712T2 11h2q.425 0 .713.288T5 12t-.288.713T4 13zm18 0q-.425 0-.712-.288T19 12t.288-.712T20 11h2q.425 0 .713.288T23 12t-.288.713T22 13zm-8-8q-.425 0-.712-.288T11 4V2q0-.425.288-.712T12 1t.713.288T13 2v2q0 .425-.288.713T12 5m0 18q-.425 0-.712-.288T11 22v-2q0-.425.288-.712T12 19t.713.288T13 20v2q0 .425-.288.713T12 23M5.65 7.05L4.575 6q-.3-.275-.288-.7t.288-.725q.3-.3.725-.3t.7.3L7.05 5.65q.275.3.275.7t-.275.7t-.687.288t-.713-.288M18 19.425l-1.05-1.075q-.275-.3-.275-.712t.275-.688q.275-.3.688-.287t.712.287L19.425 18q.3.275.288.7t-.288.725q-.3.3-.725.3t-.7-.3M16.95 7.05q-.3-.275-.288-.687t.288-.713L18 4.575q.275-.3.7-.288t.725.288q.3.3.3.725t-.3.7L18.35 7.05q-.3.275-.7.275t-.7-.275M4.575 19.425q-.3-.3-.3-.725t.3-.7l1.075-1.05q.3-.275.712-.275t.688.275q.3.275.288.688t-.288.712L6 19.425q-.275.3-.7.288t-.725-.288"></path></svg> </div> <script type="module">const d="dark-mode-icon",s="light-mode-icon",l="theme",n="dark";i();function i(){const t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",e=localStorage.getItem(l)||t;o(e);const c=document.getElementById(d),a=document.getElementById(s);c?.addEventListener("click",()=>o("light")),a?.addEventListener("click",()=>o("dark"))}function o(t){const e=document.getElementById(d);document.getElementById(s)?.classList.toggle("hidden",t===n),e?.classList.toggle("hidden",t!==n),document.documentElement.classList.toggle("dark",t===n),localStorage.setItem(l,t)}</script> </nav> <div id="search-popover" popover class="overflow-hidden rounded-lg w-full max-w-2xl bg-stone-50 dark:bg-gray-800"> <div class="DocSearch-Modal"> <search class="DocSearch-SearchBar"> <div class="DocSearch-Form"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-secondary"> <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"></path> </svg> <input id="search-keyword" type="text" class="DocSearch-Input" placeholder="站內搜尋"> </div> </search> <div id="DocSearch-Result" class="h-[336px] overflow-y-auto"></div> <script type="module">const d="search-keyword",i="DocSearch-Result";let l;document.querySelector(`#${d}`)?.addEventListener("input",r=>{l&&clearTimeout(l),l=window.setTimeout(()=>{m(r)},180)});async function m(r){const n=r.target,o=n.value;if(!o){u();return}if(o&&window.pagefind){const c=await window.pagefind.search(n.value),s=await Promise.all(c.results.map(t=>t.data())),a=[];for(const t of s){const e={content:t.content,excerpt:t.excerpt,title:t.meta.title,url:t.url};e.content&&e.excerpt&&e.title&&e.url&&(e.url.length>1&&e.url.at(-1)==="/"&&(e.url=e.url.slice(0,-1)),a.push(p(e)))}if(a.length===0){u();return}h(a)}}function p(r){const n=document.createElement("a");n.href=r.url,n.className="group block rounded-lg p-4 hover:bg-sky-600";const o=document.createElement("div");o.textContent=r.title,o.className="text-xl text-gray-400 group-hover:text-primary";const c=document.createElement("div");c.className="text-gray-400 group-hover:text-primary";const a=new DOMParser().parseFromString(r.excerpt,"text/html");return c.append(...[...a.body.childNodes].map(t=>{if(t.nodeType===Node.ELEMENT_NODE&&t.nodeName==="MARK"){const e=document.createElement("mark");return e.textContent=t.textContent,e.style.backgroundColor="#FFD700",e.style.color="#222",e}else if(t.nodeType===Node.TEXT_NODE)return document.createTextNode(t.textContent||"");return document.createTextNode("")})),n.appendChild(o),n.appendChild(c),n}function h(r){document.querySelector(`#${i}`).replaceChildren(...r)}function u(){document.querySelector(`#${i}`).replaceChildren()}</script> </div> </div> </header> <header class="fixed left-0 right-0 top-0 z-30 flex h-appbar items-center justify-between border-b border-neutral bg-primary-bg px-6 transition-transform md:hidden" style="transform: translateY(var(--appbar-transform-y));"> <nav class="text-lg font-bold"> <a href="/">Home</a> </nav> <button id="mobileMenuOpenButton" class="flex size-8 items-center justify-center text-secondary hover:text-primary" aria-label="開啟選單"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="size-8"> <path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"></path> </svg> </button> </header> <div id="mobileMenu" class="animate-fade-in fixed inset-0 z-50 hidden flex-col bg-primary-bg backdrop-blur-sm"> <div class="flex h-appbar items-center justify-between border-b border-neutral px-6"> <a href="/" class="text-lg font-bold">Home</a> <button id="mobileMenuCloseButton" class="flex size-8 items-center justify-center text-secondary hover:text-primary" aria-label="關閉選單"> <span style="font-size:2rem;">x</span> </button> </div> <nav class="flex flex-1 flex-col gap-6 overflow-y-auto p-8 text-lg"> <div class="flex flex-col gap-4"> <a class="flex items-center gap-x-2 hover:underline" href="#"> <span class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"> <path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path> </svg> </span>  </a><a class="flex items-center gap-x-2 hover:underline" href="#"> <span class="size-6" style="font-size: 1.5rem"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"> <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path> </svg> </span>  </a><a class="flex items-center gap-x-2 hover:underline" href="#">  Any Site </a> </div> </nav> </div> <script type="module">function e(){document.getElementById("mobileMenu").classList.add("flex"),document.getElementById("mobileMenu").classList.remove("hidden")}function n(){document.getElementById("mobileMenu").classList.remove("flex"),document.getElementById("mobileMenu").classList.add("hidden")}document.getElementById("mobileMenuOpenButton").addEventListener("pointerdown",e);document.getElementById("mobileMenuCloseButton").addEventListener("pointerdown",n);</script> <div class="h-appbar"></div>   <article class="mx-auto max-w-[680px] px-6" data-pagefind-body> <h1 class="post-title">type-fest 筆記</h1> <time class="mt-4 block text-sm text-gray-500" datetime="2023-08-25T00:00:00.000Z"> 8/25/2023  </time>  <div class="markdown mb-[68px] max-w-4xl"> <h1 id="type-fest-筆記">type-fest 筆記</h1>
+<p><a href="https://github.com/sindresorhus/type-fest">type-fest</a> 是包含 TypeScript 實用助手類型的庫。</p>
+<p>本處所有例子可複製至 <a href="https://www.typescriptlang.org/play">TypeScript Playground</a> 查看練習。</p>
+<p><code>// @ts-expect-error</code> 代表預期下一行 TS 程式碼是有錯誤的。</p>
+<blockquote>
+<p>本文撰寫時使用的 TypeScript 版本為 5.2.2</p>
+</blockquote>
+<h2 id="opaque-不透明類型">Opaque 不透明類型</h2>
+<blockquote>
+<p>不透明類型也被稱為品牌類型(brand)</p>
+</blockquote>
+<p>有時候我們會想要創建更安全、更容易被區分的類型。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    username</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    password</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>使用者名稱與密碼都是字串類型，但很顯然這兩個東西不應該被混淆使用，TypeScript 沒辦法區分這兩者有何不同。</p>
+<p>靠不透明類型，可以協助標記某些特別重要、需要明顯區分的類型。</p>
+<p>如果我們覺得 <code>User</code> 的 <code>password</code> 需要明顯區分，可以這樣寫：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Opaque } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    username</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    password</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Opaque</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'Password'</span><span style="color:#E1E4E8">>;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">declare</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> confirmPassword</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">password</span><span style="color:#F97583">:</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> void</span></span>
+<span class="line"><span style="color:#F97583">declare</span><span style="color:#F97583"> const</span><span style="color:#79B8FF"> user</span><span style="color:#F97583">:</span><span style="color:#B392F0"> User</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#B392F0">confirmPassword</span><span style="color:#E1E4E8">(user.username);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#B392F0">confirmPassword</span><span style="color:#E1E4E8">(user.password);</span></span></code></pre>
+<h2 id="requireoneornone-必填一個或不填">RequireOneOrNone 必填一個或不填</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { RequireOneOrNone } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Options</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    opt1</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span></span>
+<span class="line"><span style="color:#FFAB70">    opt2</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example1</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireOneOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example2</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireOneOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example3</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireOneOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example4</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireOneOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span></code></pre>
+<p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p>
+<p>底下是一個只判斷 opt1 跟 opt2 的例子， opt3 未納入判斷所以保持原樣(若必填就必填，可選就可選)：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { RequireOneOrNone } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Options</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    opt1</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span></span>
+<span class="line"><span style="color:#FFAB70">    opt2</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span></span>
+<span class="line"><span style="color:#FFAB70">    opt3</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example5</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireOneOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'opt1'</span><span style="color:#F97583"> |</span><span style="color:#9ECBFF"> 'opt2'</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt3: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="requireexactlyone-必填一個不可超過">RequireExactlyOne 必填一個，不可超過</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { RequireExactlyOne } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Options</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    opt1</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    opt2</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example1</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireExactlyOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example2</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireExactlyOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example3</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireExactlyOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example4</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireExactlyOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span></code></pre>
+<p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p>
+<h2 id="requireatleastone-至少填一個">RequireAtLeastOne 至少填一個</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { RequireAtLeastOne } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Options</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    opt1</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    opt2</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example1</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAtLeastOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example2</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAtLeastOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example3</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAtLeastOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example4</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAtLeastOne</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span></code></pre>
+<p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p>
+<h2 id="requireallornone-全填或全不填">RequireAllOrNone 全填或全不填</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { RequireAllOrNone } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Options</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    opt1</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    opt2</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example1</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAllOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example2</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAllOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ok</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example3</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAllOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt1: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opt2: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example4</span><span style="color:#F97583">:</span><span style="color:#B392F0"> RequireAllOrNone</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Options</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span></code></pre>
+<p>第二個泛型參數可以填入有哪些 <code>key</code> 要納入判斷，預設是所有 <code>key</code>，未被納入判斷的 <code>key</code> 保持原樣。</p>
+<h2 id="merge-合併">Merge 合併</h2>
+<p>Merge 有兩個泛型參數，第二個類型會覆蓋第一個類型。</p>
+<blockquote>
+<p>此類型僅進行淺層合併，請看示例三，如果需要深度合併請見 MergeDeep</p>
+</blockquote>
+<h3 id="示例一">示例一</h3>
+<p>用 <code>Bar1</code> 覆蓋了 <code>Foo1</code>，最終 <code>id</code> 為 <code>number</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { Merge } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Foo1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Bar1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example1</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Merge</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Foo1</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Bar1</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    id: </span><span style="color:#79B8FF">1</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="示例二">示例二</h3>
+<p><code>name</code> 可選被覆蓋成必填的例子。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Foo2</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Bar2</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example2</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Merge</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Foo2</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Bar2</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    id: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'John'</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="示例三">示例三</h3>
+<p><code>data</code> 從 <code>{ foo: string; }</code> 被覆蓋成 <code>{ bar: string; }</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Foo3</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    data</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">        foo</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Bar3</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    data</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">        bar</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example3</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Merge</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Foo3</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Bar3</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    id: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    data: {</span></span>
+<span class="line"><span style="color:#6A737D">        // @ts-expect-error</span></span>
+<span class="line"><span style="color:#E1E4E8">        foo: </span><span style="color:#9ECBFF">'foo'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        bar: </span><span style="color:#9ECBFF">'bar'</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="overrideproperties-覆蓋">OverrideProperties 覆蓋</h2>
+<p>和 Merge 類似，不同之處在於第二個類型只能有第一個類型存在的 <code>key</code>。</p>
+<p>在想要修改原始類型而不增加額外的屬性時，使用此類型比 Merge 更安全。</p>
+<p>下例因為第二個類型 <code>Bar</code> 有第一個類型沒有的 <code>bar</code> 屬性，所以報錯。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { OverrideProperties } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Foo</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Bar</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    bar</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// @ts-expect-error</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example</span><span style="color:#F97583">:</span><span style="color:#B392F0"> OverrideProperties</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Foo</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Bar</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    id: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    bar: </span><span style="color:#9ECBFF">'1'</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="mergedeep-深度合併">MergeDeep 深度合併</h2>
+<p>Merge 的深度合併版本。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Foo</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    data</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">        foo</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Bar</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    data</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">        bar</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> example</span><span style="color:#F97583">:</span><span style="color:#B392F0"> MergeDeep</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Foo</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Bar</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    id: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    data: {</span></span>
+<span class="line"><span style="color:#E1E4E8">        foo: </span><span style="color:#9ECBFF">'foo'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        bar: </span><span style="color:#9ECBFF">'bar'</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="literalunion-字面量聯合類型">LiteralUnion 字面量聯合類型</h2>
+<p>這是為了應對 TypeScript 的已知限制而誕生的類型(詳情請見 <a href="https://github.com/Microsoft/TypeScript/issues/29729">issue</a>)</p>
+<p>當我們在撰寫一個 <code>Color</code> 字串聯合類型時，我們希望允許 <code>#ffffff</code> 這樣的任意字串，但也希望提供 <code>'black'</code> 的預定義顏色。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> Color</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'black'</span><span style="color:#F97583"> |</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> mycolor</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Color</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> ''</span></span></code></pre>
+<p>但是這會產生在編輯器中失去自動完成功能的問題。為了應對這個問題，利用 <code>LiteralUnion</code> 改寫即可保留自動完成功能。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { LiteralUnion } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> Color</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> LiteralUnion</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#9ECBFF">'black'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> mycolor</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Color</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> ''</span></span></code></pre>
+<h2 id="valueof-取物件屬性值的聯合類型">ValueOf 取物件屬性值的聯合類型</h2>
+<p>和 <code>T[keyof T]</code> 一樣。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { ValueOf } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    age</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    location</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> [</span><span style="color:#B392F0">lat</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">number</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">lng</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">number</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> A</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> ValueOf</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Person</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">// type A = string | number | [lat: number, lng: number]</span></span></code></pre>
+<p>第二個泛型參數可以指定要哪幾個 key 的類型，預設是全部。</p>
+<h2 id="conditionalkeys-取符合條件的-key">ConditionalKeys 取符合條件的 Key</h2>
+<p>用來取得物件中符合條件的 key。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { ConditionalKeys } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'type-fest'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    age</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    location</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> [</span><span style="color:#B392F0">lat</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">number</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">lng</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">number</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#FFAB70">    address</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> A</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> ConditionalKeys</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Person</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">// type A = "name" | "address"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> B</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> ConditionalKeys</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Person</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">string</span><span style="color:#F97583"> |</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">// type B = "name" | "age" | "address"</span></span></code></pre> </div> <div class="flex flex-wrap gap-x-2 gap-y-5"> <a href="/tag/TypeScript"> <span class="rounded-3xl bg-neutral px-4 py-2 text-sm"> TypeScript </span> </a> </div> <div class="pb-[140px]"></div> </article> <footer class="mx-6 bg-footer-bg pt-[72px]"> <div class="mx-auto max-w-[680px]"> <div class="mb-4 size-[72px] overflow-hidden"> <img class="max-h-full rounded-full object-contain" src="/_astro/avatar.CcO8LhTO.png" alt="Sayoko123f"> </div> <div class="text-2xl">Sayoko123f</div> <div class="mt-4 text-sm">一名前端阿宅</div> <div class="border-b border-footer-neutral pb-10"></div> <div class="pb-16 pt-10"> <div class="mb-12 text-2xl">More</div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2"> <a class="grid grid-cols-subgrid" href="/posts/chinese-font-split"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">CSS 載入自訂中文字體並分割</h2> <p class="post-subtitle line-clamp-2"> CSS 載入自訂中文字體並分割 </p> <div class="mt-auto"> 7/23/2025 </div> </a><a class="grid grid-cols-subgrid" href="/posts/what-is-tnumber"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">T[number] 是什麼</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 8/28/2023 </div> </a><a class="grid grid-cols-subgrid" href="/posts/type-fest-note"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">type-fest 筆記</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 8/25/2023 </div> </a><a class="grid grid-cols-subgrid" href="/posts/vue3-vee-vaildate"> <div class="h-[162px] w-[324px]">  </div> <h2 class="post-title line-clamp-2">Vue 3 表單驗證 Vee Vaildate 4 (使用組合式API)</h2> <p class="post-subtitle line-clamp-2">  </p> <div class="mt-auto"> 2/19/2023 </div> </a> </div> </div> </div> </footer> <script type="module">function n(){const o=new IntersectionObserver(async r=>{for(const t of r){if(!t.isIntersecting)return;const c=t.target.dataset.youtube;if(!c)return;o.unobserve(t.target);const e=document.createElement("iframe");e.classList.add("w-full","aspect-video"),e.src=`https://www.youtube-nocookie.com/embed/${c}`,e.title="Youtube Video Player",e.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",e.referrerPolicy="strict-origin-when-cross-origin",e.setAttribute("allowfullscreen",""),t.target.replaceWith(e)}});for(const r of document.querySelectorAll("[data-youtube]"))o.observe(r)}n();</script> <script type="module" src="/_astro/_...id_.astro_astro_type_script_index_1_lang.Dva2GyI9.js"></script>  <script>(function(){const scriptUrl = "/pagefind/pagefind.js";
+
+async function loadPagefind() {
+    try {
+        const response = await fetch(scriptUrl, { method: 'HEAD' });
+        if (!response.ok) {
+            throw new Error(`Pagefind script not found: ${response.status}`);
+        }
+
+        const pagefind = await import(scriptUrl);
+
+        await pagefind.options({
+            excerptLength: 20
+        });
+
+        window.pagefind = pagefind;
+
+        document.dispatchEvent(new CustomEvent('pagefindready'));
+    } catch (error) {
+        console.error('Failed to load Pagefind:', error);
+        window.pagefind = {
+            search: () => Promise.resolve({ results: [] }),
+            options: () => Promise.resolve(),
+        };
+        document.dispatchEvent(new CustomEvent('pagefindloaderror'));
+        console.log('Pagefind load error, event dispatched.');
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadPagefind);
+} else {
+    loadPagefind();
+}
+})();</script> <script type="module">function r(t,n){let l=null;return(...e)=>{l===null&&(t.apply(null,e),l=window.setTimeout(()=>{l=null},n))}}let o=0;const c=r(u,40);window.addEventListener("scroll",()=>{c()},{passive:!0});function u(){const t=window.scrollY;t-o>0?i():p(),o=t}function i(){document.documentElement.style.setProperty("--appbar-transform-y","calc(var(--appbar-height) * -1)")}function p(){document.documentElement.style.setProperty("--appbar-transform-y","0")}</script> </body> </html>
